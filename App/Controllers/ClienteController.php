@@ -1,0 +1,174 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Lib\Sessao;
+use App\Models\DAO\ClienteDAO;
+use App\Models\Entidades\Cliente;
+use App\Models\Validacao\CLienteValidador;
+
+class ClienteController extends Controller
+{
+    public function index()
+    {
+        $clienteDAO = new ClienteDAO();
+
+        self::setViewParam('listaClientes',$clienteDAO->listar());
+
+        $this->render('/cliente/index');
+
+        Sessao::limpaMensagem();
+    }
+
+    public function cliente()
+    {
+        $this->render('/cliente/cadastro');
+
+        Sessao::limpaFormulario();
+        Sessao::limpaMensagem();
+        Sessao::limpaErro();
+    }
+
+    public function salvar()
+    {
+        $Cliente = new Cliente();
+        $Cliente->setClie_nome($_POST['clie_nome']);
+        $Cliente->setClie_emai($_POST['clie_emai']);
+        $Cliente->setClie_nofa($_POST['clie_nofa']);
+        $Cliente->setClie_tele($_POST['clie_tele']);
+        $Cliente->setClie_cnpj($_POST['clie_cnpj']);
+        $Cliente->setClie_tipo($_POST['clie_tipo']);
+        $Cliente->setClie_situ($_POST['clie_situ']);
+        $Cliente->setClie_dtco($_POST['clie_dtco']);
+        $Cliente->setClie_logr($_POST['clie_logr']);
+        $Cliente->setClie_nume($_POST['clie_nume']);
+        $Cliente->setClie_bair($_POST['clie_bair']);
+        $Cliente->setClie_copl($_POST['clie_copl']);
+        $Cliente->setClie_cida($_POST['clie_cida']);
+        $Cliente->setClie_esta($_POST['clie_esta']);
+        $Cliente->setClie_obse($_POST['clie_obse']);
+
+        Sessao::gravaFormulario($_POST);
+
+        $clienteValidador = new ClienteValidador();
+        $resultadoValidacao = $clienteValidador->validar($cliente);
+
+        if($resultadoValidacao->getErros()){
+            Sessao::gravaErro($resultadoValidacao->getErros());
+            $this->redirect('/cliente/cliente');
+        }
+
+        $clienteDAO = new ClienteDAO();
+
+        $clienteDAO->salvar($Cliente);
+        
+        Sessao::limpaFormulario();
+        Sessao::limpaMensagem();
+        Sessao::limpaErro();
+
+        $this->redirect('/cliente');
+      
+    }
+    
+    public function edicao($params)
+    {
+        $id = $params[0];
+
+        $clienteDAO = new ClienteDAO();
+
+        $cliente = $clienteDAO->listar($id);
+
+        if(!$cliente){
+            Sessao::gravaMensagem("Produto inexistente");
+            $this->redirect('/cliente');
+        }
+
+        self::setViewParam('cliente',$cliente);
+
+        $this->render('/cliente/editar');
+
+        Sessao::limpaMensagem();
+
+    }
+
+    public function atualizar()
+    {
+
+        $cliente = new Cliente();
+        $Cliente->setClie_nome($_POST['clie_nome']);
+        $Cliente->setClie_emai($_POST['clie_emai']);
+        $Cliente->setClie_nofa($_POST['clie_nofa']);
+        $Cliente->setClie_tele($_POST['clie_tele']);
+        $Cliente->setClie_cnpj($_POST['clie_cnpj']);
+        $Cliente->setClie_tipo($_POST['clie_tipo']);
+        $Cliente->setClie_situ($_POST['clie_situ']);
+        $Cliente->setClie_dtco($_POST['clie_dtco']);
+        $Cliente->setClie_logr($_POST['clie_logr']);
+        $Cliente->setClie_nume($_POST['clie_nume']);
+        $Cliente->setClie_bair($_POST['clie_bair']);
+        $Cliente->setClie_copl($_POST['clie_copl']);
+        $Cliente->setClie_cida($_POST['clie_cida']);
+        $Cliente->setClie_esta($_POST['clie_esta']);
+        $Cliente->setClie_obse($_POST['clie_obse']);
+
+        Sessao::gravaFormulario($_POST);
+
+        $clienteValidador = new ClienteValidador();
+        $resultadoValidacao = $clienteValidador->validar($cliente);
+
+        if($resultadoValidacao->getErros()){
+            Sessao::gravaErro($resultadoValidacao->getErros());
+            $this->redirect('/cliente/edicao/'.$_POST['id']);
+        }
+
+        $clienteDAO = new ClienteDAO();
+
+        $clienteDAO->atualizar($cliente);
+
+        Sessao::limpaFormulario();
+        Sessao::limpaMensagem();
+        Sessao::limpaErro();
+
+        $this->redirect('/cliente');
+
+    }
+    
+    public function exclusao($params)
+    {
+        $id = $params[0];
+
+        $clienteDAO = new ClienteDAO();
+
+        $cliente = $clienteDAO->listar($id);
+
+        if(!$cliente){
+            Sessao::gravaMensagem("Produto inexistente");
+            $this->redirect('/cliente');
+        }
+
+        self::setViewParam('cliente',$cliente);
+
+        $this->render('/cliente/exclusao');
+
+        Sessao::limpaMensagem();
+
+    }
+
+    public function excluir()
+    {
+        $cliente = new Cliente();
+        $cliente->setId($_POST['id']);
+
+        $clienteDAO = new ClienteDAO();
+
+        if(!$clienteDAO->excluir($cliente)){
+            Sessao::gravaMensagem("Produto inexistente");
+            $this->redirect('/cliente');
+        }
+
+        Sessao::gravaMensagem("Produto excluido com sucesso!");
+
+        $this->redirect('/cliente');
+
+    }
+}
