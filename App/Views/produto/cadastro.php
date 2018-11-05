@@ -27,7 +27,11 @@
           </div>
           <div class="form-group">
             <label for="clie_tipo">Tipo</label>
-            <input type="text" class="form-control" name="clie_tipo" placeholder="tipo" value="<?php echo $Sessao::retornaValorFormulario('clie_tipo'); ?>" required>          
+            <input type="text" class="form-control" name="clie_tipo" placeholder="Tipo" value="<?php echo $Sessao::retornaValorFormulario('clie_tipo'); ?>" required>          
+          </div>
+          <div class="form-group">
+            <label for="clie_tipo">Tipo</label>
+            <input type="text" class="form-control" name="clie_tipo" placeholder="Tipo" value="<?php echo $Sessao::retornaValorFormulario('clie_tipo'); ?>" required>          
           </div>
           <button type="submit" class="btn btn-success btn-sm">Salvar</button>
         </form>
