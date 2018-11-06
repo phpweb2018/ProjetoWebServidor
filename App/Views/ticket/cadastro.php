@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <h3>Cadastro de Produto</h3>
+            <h3>Cadastro de Ticket</h3>
             
             <?php if($Sessao::retornaErro()){ ?>
                 <div class="alert alert-warning" role="alert">
@@ -13,25 +13,40 @@
                 </div>
             <?php } ?>
 
-            <form action="http://<?php echo APP_HOST; ?>/produto/salvar" method="post" id="form_cadastro">
+            <form action="http://<?php echo APP_HOST; ?>/ticket/salvar" method="post" id="form_cadastro">
                 <div class="form-group">
-                    <label for="nome">Titulo</label>
-                    <input type="text" class="form-control"  name="nome" placeholder="Nome do Produto" value="<?php echo $Sessao::retornaValorFormulario('nome'); ?>" required>
+                    <label for="tick-titulo">Titulo</label>
+                    <input type="text" class="form-control"  name="tick_titulo" placeholder="Nome do ticket" value="<?php echo $Sessao::retornaValorFormulario('tick_titulo'); ?>" required>
 
                 </div>
                 <div class="form-group">
-                    <label for="preco">Preço</label>
-                    R$ <input type="text" class="form-control" name="preco" placeholder="100" value="<?php echo $Sessao::retornaValorFormulario('preco'); ?>" required>
+                    <label for="tick_cliente">Cliente</label>
+                    <input type="text" class="form-control" name="tick_cliente" placeholder="Cliente" value="<?php echo $Sessao::retornaValorFormulario('tick_cliente'); ?>" required>
 
                 </div>
                 <div class="form-group">
-                    <label for="quantidade">Quantidade</label>
-                    <input type="number" class="form-control" name="quantidade" placeholder="0" value="<?php echo $Sessao::retornaValorFormulario('quantidade'); ?>" required>
+                    <label for="tick_responsavel">Responsável</label>
+                    <input type="number" class="form-control" name="tick_responsavel" placeholder="Responsável pelo Ticket" value="<?php echo $Sessao::retornaValorFormulario('tick_responsavel'); ?>" required>
 
                 </div>
                 <div class="form-group">
-                    <label for="descricao">Descrição</label>
-                    <textarea class="form-control" name="descricao" placeholder="Descrição do produto" required><?php echo $Sessao::retornaValorFormulario('descricao'); ?></textarea>
+                    <label for="tick_situacao">Situação</label>
+                    <textarea class="form-control" name="tick_situacao" placeholder="Situação do Ticket" required><?php echo $Sessao::retornaValorFormulario('tick_situacao'); ?></textarea>
+
+                </div>
+                <div class="form-group">
+                    <label for="tick_prioridade">Prioridade</label>
+                    <textarea class="form-control" name="tick_prioridade" placeholder="Prioridade do ticket" required><?php echo $Sessao::retornaValorFormulario('tick_prioridade'); ?></textarea>
+
+                </div>
+                <div class="form-group">
+                    <label for="tick_criacao">Criação</label>
+                    <textarea class="form-control" name="tick_criacao" placeholder="Data de Criação" required><?php echo $Sessao::retornaValorFormulario('tick_criacao'); ?></textarea>
+
+                </div>
+                <div class="form-group">
+                    <label for="tick_departamento">Departamento</label>
+                    <textarea class="form-control" name="tick_departamento" placeholder="Departamento responsável" required><?php echo $Sessao::retornaValorFormulario('tick_departamento'); ?></textarea>
 
                 </div>
 
