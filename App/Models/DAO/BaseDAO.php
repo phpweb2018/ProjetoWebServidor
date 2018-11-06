@@ -59,9 +59,6 @@ abstract class BaseDAO
     {
         if(!empty($table))
         {
-            /*
-                DELETE usuario WHERE id = 1
-            */
 
             if($where)
             {
