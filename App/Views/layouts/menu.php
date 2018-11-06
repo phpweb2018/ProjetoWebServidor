@@ -12,7 +12,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li <?php if($viewVar['nameController'] == "PrincipalController") { ?> class="active" <?php } ?>>
-                    <a href="http://<?php echo APP_HOST; ?>" >Home</a>
+                    <a href="http://<?php echo APP_HOST; ?>" >Principal</a>
                 </li>
                 <li <?php if($viewVar['nameController'] == "ProdutoController" && ($viewVar['nameAction'] == "" || $viewVar['nameAction'] == "index")) { ?> class="active" <?php } ?>>
                     <a href="http://<?php echo APP_HOST; ?>/produto" >Lista de Produtos</a>
