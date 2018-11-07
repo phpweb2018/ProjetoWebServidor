@@ -20,10 +20,10 @@ abstract class Controller
         $viewVar   = $this->getViewVar();
         $Sessao    = Sessao::class;
 
-        require_once PATH . '/App/Views/layouts/header.php';
+        require_once PATH . '/App/Views/layouts/cabecalho.php';
         require_once PATH . '/App/Views/layouts/menu.php';
         require_once PATH . '/App/Views/' . $view . '.php';
-        require_once PATH . '/App/Views/layouts/footer.php';
+        require_once PATH . '/App/Views/layouts/rodape.php';
     }
 
     public function redirect($view)

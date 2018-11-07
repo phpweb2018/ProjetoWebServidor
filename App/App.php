@@ -15,16 +15,13 @@ class App
 
     public function __construct()
     {
-        /*
-         * Constantes do sistema
-         */
         define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/pronto/mvc-php-crud-produto");
         define('PATH'           , realpath('./'));
-        define('TITLE'          , "CRUD - Aplicação MVC em PHP - DevMedia");
+        define('TITLE'          , "Hass - Soluções");
         define('DB_HOST'        , "localhost");
         define('DB_USER'        , "root");
         define('DB_PASSWORD'    , "");
-        define('DB_NAME'        , "devmedia");
+        define('DB_NAME'        , "hasssolucoes");
         define('DB_DRIVER'      , "mysql");
 
         $this->url();
@@ -58,10 +55,11 @@ class App
             throw new Exception("Erro na aplicação", 500);
         }
         
-        if (method_exists($objetoController, $this->action)) {
+        
+        if (method_exists($objetoController, $this->action)) {//Executa a ação do controlador
             $objetoController->{$this->action}($this->params);
             return;
-        } else if (!$this->action && method_exists($objetoController, 'index')) {
+        } else if (!$this->action && method_exists($objetoController,'index')) {
             $objetoController->index($this->params);
             return;
         } else {
@@ -72,23 +70,23 @@ class App
 
     public function url () {
 
-        if ( isset( $_GET['url'] ) ) {
+      if ( isset( $_GET['url'] ) ) {
 
-            $path = $_GET['url'];
-            $path = rtrim($path, '/');
-            $path = filter_var($path, FILTER_SANITIZE_URL); 
+          $path = $_GET['url'];
+          $path = rtrim($path, '/');
+          $path = filter_var($path, FILTER_SANITIZE_URL); 
 
-            $path = explode('/', $path);
+          $path = explode('/', $path);
 
-            $this->controller  = $this->verificaArray( $path, 0 );
-            $this->action      = $this->verificaArray( $path, 1 );
+          $this->controller  = $this->verificaArray( $path, 0 );
+          $this->action      = $this->verificaArray( $path, 1 );
 
-            if ( $this->verificaArray( $path, 2 ) ) {
-                unset( $path[0] );
-                unset( $path[1] );
-                $this->params = array_values( $path );
-            }
-        }
+          if ( $this->verificaArray( $path, 2 ) ) {
+              unset( $path[0] );
+              unset( $path[1] );
+              $this->params = array_values( $path );
+          }
+      }
     }
 
     public function getController()
