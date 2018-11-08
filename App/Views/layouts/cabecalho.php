@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="icon" href="public/public/img/hass/Logo_Site.png">
+    <link rel="icon" href="public/img/hass/Logo_Site.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
 
-    <script src="public/js/sidebar.js"></script>
-    <script src="public/js/navbar.js"></script>
+    <script src="http://<?php echo APP_HOST; ?>public/js/sidebar.js"></script>
+    <script src="http://<?php echo APP_HOST; ?>public/js/navbar.js"></script>
 
     <title><?php echo TITLE; ?></title>
 

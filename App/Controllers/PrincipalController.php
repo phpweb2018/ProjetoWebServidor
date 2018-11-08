@@ -6,6 +6,6 @@ class PrincipalController extends Controller
 {
     public function index()
     {
-        $this->render('Principal/index');
+        $this->render('principal/index');
     }
 }
