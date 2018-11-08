@@ -21,8 +21,8 @@ abstract class Controller
         $Sessao    = Sessao::class;
 
         require_once PATH . '/App/Views/layouts/cabecalho.php';
-        require_once PATH . '/App/Views/layouts/menu.php';
-        require_once PATH . '/App/Views/' . $view . '.php';
+        require_once PATH . '/App/Views/layouts/sidebar.php';
+        require_once PATH . '/App/Views/'.$view.'.php';
         require_once PATH . '/App/Views/layouts/rodape.php';
     }
 

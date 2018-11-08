@@ -15,7 +15,7 @@ class App
 
     public function __construct()
     {
-        define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/pronto/mvc-php-crud-produto");
+        define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/ProjetoWebServidor");
         define('PATH'           , realpath('./'));
         define('TITLE'          , "Hass - Soluções");
         define('DB_HOST'        , "localhost");
