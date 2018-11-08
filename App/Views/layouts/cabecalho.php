@@ -9,14 +9,12 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
 
-    <script src="http://<?php echo APP_HOST; ?>public/js/sidebar.js"></script>
-    <script src="http://<?php echo APP_HOST; ?>public/js/navbar.js"></script>
 
     <title><?php echo TITLE; ?></title>
 
-    <link rel="stylesheet" href="public/css/sidebar.css">
-    <link rel="stylesheet" href="public/css/navbar.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/compiler/bootstrap.css">
+    <link rel="stylesheet" href="http://<?php echo APP_HOST; ?>/public/css/sidebar.css">
+    <link rel="stylesheet" href="http://<?php echo APP_HOST; ?>/public/css/navbar.css">
+    <link rel="stylesheet" href="http://<?php echo APP_HOST; ?>/node_modules/bootstrap/compiler/bootstrap.css">
 
     
 
