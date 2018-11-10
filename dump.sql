@@ -1,5 +1,6 @@
 create table clie(
-    clie_codi integer NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    clie_codi integer NOT NULL PRIMARY KEY AUTO_INCREMENT, /*mysql*/
+    -- clie_codi serial PRIMARY KEY, /*postgres*/ 
     clie_nome varchar(150), 
     clie_emai varchar(100), 
     clie_nofa varchar(150), 

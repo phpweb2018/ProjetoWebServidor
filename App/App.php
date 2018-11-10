@@ -19,43 +19,44 @@ class App
         define('PATH'           , realpath('./'));
         define('TITLE'          , "Hass - Soluções");
         define('DB_HOST'        , "localhost");
-        define('DB_USER'        , "root");
-        define('DB_PASSWORD'    , "");
+        define('DB_USER'        , "postgres");
+        define('DB_PASSWORD'    , "postgres");
         define('DB_NAME'        , "hasssolucoes");
-        define('DB_DRIVER'      , "mysql");
+        define('DB_DRIVER'      , "pgsql");
 
         $this->url();
     }
 
     public function run()
     {
-        if ($this->controller) {
-            $this->controllerName = ucwords($this->controller) . 'Controller';
-            $this->controllerName = preg_replace('/[^a-zA-Z]/i', '', $this->controllerName);
+      //Aqui a magica acontece!!
+        if ($this->controller) {  //Verificar se está tentando acessar alguma classe especifica por meio do controlador
+            $this->controllerName = ucwords($this->controller).'Controller';//Adiciona Controller no do atributo da casse controller em questão
+            $this->controllerName = preg_replace('/[^a-zA-Z]/i', '', $this->controllerName);//Remove todos os caractéres exceto Letras Min. ou Mai.
         } else {
-            $this->controllerName = "PrincipalController";
+            $this->controllerName = "PrincipalController";//Caso não exista uma classe de controlador especifica será utilizada a classe Principal ou seja a DashBoard
         }
 
-        $this->controllerFile   = $this->controllerName . '.php';
-        $this->action           = preg_replace('/[^a-zA-Z]/i', '', $this->action);
+        $this->controllerFile   = $this->controllerName . '.php';//add .php para buscar o arquivo
+        $this->action           = preg_replace('/[^a-zA-Z]/i', '', $this->action);//Já explicado anteriormente mas agora é para a ação que esta sendo tomada
 
-        if (!$this->controller) {
+        if (!$this->controller) {   // caso não tenha sido encontrada a Classe Será redirecionado para a principal Sempre.
             $this->controller = new PrincipalController($this);
-            $this->controller->index();
+            $this->controller->index(); //Chama o método para carregar a Classe e a página principal
         }
 
         if (!file_exists(PATH . '/App/Controllers/' . $this->controllerFile)) {
-            throw new Exception("Página não encontrada.", 404);
+            throw new Exception("Página não encontrada.", 404);//Caso não exista o arquivo da classe controlador apresenta erro em tela
         }
 
-        $nomeClasse     = "\\App\\Controllers\\" . $this->controllerName;
+        $nomeClasse     = "\\App\\Controllers\\" . $this->controllerName;  //Complementa a Classe para depois fazer a criação
+      
         $objetoController = new $nomeClasse($this);
 
-        if (!class_exists($nomeClasse)) {
-            throw new Exception("Erro na aplicação", 500);
+        if (!class_exists($nomeClasse)) { //Verifica se a Classe existe
+          throw new Exception("Erro na aplicação", 500);
         }
-        
-        
+
         if (method_exists($objetoController, $this->action)) {//Executa a ação do controlador
             $objetoController->{$this->action}($this->params);
             return;

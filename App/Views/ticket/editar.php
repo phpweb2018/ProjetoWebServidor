@@ -19,7 +19,7 @@
 
                 <div class="form-group">
                     <label for="tick_titulo">Título</label>
-                    <input type="text"  class="form-control" name="tick_titulo" id="tick_titulo" placeholder="" value="<?php echo $viewVar['ticket']->getTick_titulo(); ?>" required>
+                    <input type="text"   class="form-control" name="tick_titulo" id="tick_titulo" placeholder="" value="<?php echo $viewVar['ticket']->getTick_titulo(); ?>" required>
                 </div>
 
                 <div class="form-group">

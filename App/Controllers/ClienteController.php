@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Lib\Sessao;
 use App\Models\DAO\ClienteDAO;
 use App\Models\Entidades\Cliente;
-use App\Models\Validacao\CLienteValidador;
+use App\Models\Validacao\ClienteValidador;
 
 class ClienteController extends Controller
 {
@@ -20,7 +20,7 @@ class ClienteController extends Controller
         Sessao::limpaMensagem();
     }
 
-    public function cliente()
+    public function cadastro()
     {
         $this->render('/cliente/cadastro');
 
@@ -79,7 +79,7 @@ class ClienteController extends Controller
         $cliente = $clienteDAO->listar($id);
 
         if(!$cliente){
-            Sessao::gravaMensagem("Produto inexistente");
+            Sessao::gravaMensagem("Cliente inexistente");
             $this->redirect('/cliente');
         }
 
@@ -142,7 +142,7 @@ class ClienteController extends Controller
         $cliente = $clienteDAO->listar($id);
 
         if(!$cliente){
-            Sessao::gravaMensagem("Produto inexistente");
+            Sessao::gravaMensagem("Cliente inexistente");
             $this->redirect('/cliente');
         }
 
@@ -162,13 +162,14 @@ class ClienteController extends Controller
         $clienteDAO = new ClienteDAO();
 
         if(!$clienteDAO->excluir($cliente)){
-            Sessao::gravaMensagem("Produto inexistente");
+            Sessao::gravaMensagem("Cliente inexistente");
             $this->redirect('/cliente');
         }
 
-        Sessao::gravaMensagem("Produto excluido com sucesso!");
+        Sessao::gravaMensagem("Cliente excluido com sucesso!");
 
         $this->redirect('/cliente');
 
     }
+
 }

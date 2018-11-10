@@ -6,7 +6,7 @@
 body {
     /* font-family: 'Poppins', sans-serif; */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: rgb(255, 255, 255);/*cor de fundo da pagina*/
+    background: rgba(134, 133, 133, 0.575);/*cor de fundo da pagina*/
 }
 
 p {
@@ -14,8 +14,14 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: rgb(255, 255, 255);/*cor de fonte da side bar*/
+    color: rgba(255, 255, 255, 0.39);/*cor de fonte da side bar*/
 }
+
+
+#Rota {
+  margin-bottom: 5px;
+}
+
 
 a,
 a:hover,
@@ -61,7 +67,7 @@ span {
 #sidebar {
     min-width: 190px;
     max-width: 190px;
-    background: rgb(73, 185, 255);/*cor da de fundo da side bar*/
+    background: rgba(38, 100, 172);/*cor da de fundo da side bar*/
     color: #fff;
     transition: all 0.3s;
 }
@@ -70,6 +76,7 @@ span {
     min-width: 110px;
     max-width: 110px;
     text-align: center;
+    background: rgba(38, 100, 172);
 }
 
 #sidebar.active .sidebar-header h3,
@@ -115,7 +122,7 @@ span {
     padding-top: 20px;
     padding-left: 5px;
     padding-right: 5px;
-    background: rgb(73, 185, 255);/*cor do cabecalho da side bar*/
+    background: rgba(38, 100, 172) !important;/*cor do cabecalho da side bar*/
 }
 
 #sidebar .sidebar-header strong {
@@ -125,7 +132,8 @@ span {
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid rgb(73, 185, 255);
+    border-bottom: 1px;
+    background:  rgba(38, 100, 172) !important;
 }
 
 #sidebar ul li a {
@@ -164,7 +172,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: rgb(73, 185, 255);
+    background: rgba(38, 100, 172) !important;
 }
 
 ul.CTAs {
@@ -180,19 +188,19 @@ ul.CTAs a {
 }
 
 a.sair {
-    background: rgb(73, 185, 255);/*cor do botão de sair da side bar*/
+    background: rgba(38, 100, 172);/*cor do botão de sair da side bar*/
     color: rgb(120, 137, 206);
 }
 
 a.article,
 a.article:hover {
     background: #6279df !important;
-    color: rgb(73, 185, 255) !important;
+    color: rgba(38, 100, 172) !important;
 }
 
 #content {
     width: 100%;
-    padding: 20px;
+    padding: 5px;
     min-height: 100vh;
     transition: all 0.3s;
 }

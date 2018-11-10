@@ -1,0 +1,27 @@
+Padrões do Projeto
+
+Formulario:
+ 
+  Shadow: Regular
+  O name tem que ser igual do banco
+
+  Foi criado uma ID no CSS para o label 
+  setando font-size 20px 
+  utilizar a id 'label-form'
+
+  Botão Gravar Success
+  Botão Excluir Warning
+  
+  tambem utilizar a id 'label-form'
+
+  Todo Custum Select - ou seja um combo box 
+  deve usar a id dis_flecha
+  que serve para remover a flecha padrão do navegador
+
+
+
+ICONES
+    padrão: https://fontawesome.com/icons
+    basta encontrar o icone e adicionar o html 
+    exemplo:
+    <i class="fas fa-columns"></i>

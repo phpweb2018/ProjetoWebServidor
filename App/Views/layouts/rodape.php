@@ -1,3 +1,8 @@
+  </div>
+</div>
+<!-- essas tags são o fechamento do conteudo 
+a aberturas dessas tags foi realizada na side bar -->
+
 <footer>
   <!-- Verificar o que pode ser inserido no rodapé do sistema -->
 </footer>
@@ -9,7 +14,6 @@
   <script src="http://<?php echo APP_HOST; ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
   
   <script src="http://<?php echo APP_HOST; ?>/public/js/sidebar.js"></script>
-  <script src="http://<?php echo APP_HOST; ?>/public/js/navbar.js"></script>
 
 </body>
 </html>
