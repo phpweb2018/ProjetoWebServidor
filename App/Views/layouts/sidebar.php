@@ -33,8 +33,7 @@
       </li>
     </ul>
   </nav>
-
-
+  
     <!-- Conteudo  -->
     <div id="content">
     <!-- o conteúdo apresentado será o que está dentro do index do Controler atual   -->
@@ -44,10 +43,32 @@
       <div class="container-full" >
         <div class="col-md-12 "  id="zera-MarginEpadding">
           <ul class="breadcrumb" id='Rota'>
-            <li class="breadcrumb-item"> 
-            <a href="#">Home</a> </li>
-            <li class="breadcrumb-item active">Link</li>
-            <li class="breadcrumb-item active">Link</li>
+            <?php
+              if (count($rota) > 1) {
+                foreach ($rota as $rt) {
+            ?>
+              <li class="breadcrumb-item <?php echo (isset($viewVar['nameAction']) && $rt != $viewVar['nameAction'])?'':'active'; ?> ">
+                  <?php
+                    if(isset($viewVar['nameAction']) && $rt != $viewVar['nameAction']){//Insere o link do primeiro ao penultimo item da rota
+                  ?>
+                    <a href="http://<?php echo APP_HOST.'/'.$rt; ?>">
+                  <?php
+                    }  
+                  ?>
+                    <?php echo ucfirst($rt); ?>
+                  </a>
+              </li>
+            <?php
+                }
+              } else { 
+            ?>
+              <li class="breadcrumb-item active ">
+                    <?php echo ucfirst($rota[0]); ?>
+                  </a>
+              </li>
+            <?php
+              }
+            ?>
           </ul>
         </div>
       </div>

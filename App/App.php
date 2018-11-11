@@ -56,8 +56,9 @@ class App
         if (!class_exists($nomeClasse)) { //Verifica se a Classe existe
           throw new Exception("Erro na aplicação", 500);
         }
-
+        
         if (method_exists($objetoController, $this->action)) {//Executa a ação do controlador
+
             $objetoController->{$this->action}($this->params);
             return;
         } else if (!$this->action && method_exists($objetoController,'index')) {

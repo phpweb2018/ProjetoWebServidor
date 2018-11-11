@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Clientes;
+namespace App\Models\Entidades;
 
 use DateTime;
 

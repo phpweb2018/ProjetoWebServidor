@@ -12,7 +12,6 @@ a aberturas dessas tags foi realizada na side bar -->
   <script src="http://<?php echo APP_HOST; ?>/node_modules/jquery/dist/jquery.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/node_modules/popper.js/dist/popper.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  
   <script src="http://<?php echo APP_HOST; ?>/public/js/sidebar.js"></script>
 
 </body>

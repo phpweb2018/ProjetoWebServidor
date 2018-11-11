@@ -2,6 +2,7 @@
 
 namespace App\Models\DAO;
 
+
 use App\Models\Entidades\Cliente;
 
 class ClienteDAO extends BaseDAO
@@ -10,13 +11,13 @@ class ClienteDAO extends BaseDAO
     {
         if($id) {
             $resultado = $this->select(
-                "SELECT * FROM Cliente WHERE clie_codi = $id"
+                "SELECT * FROM clie WHERE clie_codi = $id"
             );
 
             return $resultado->fetchObject(Cliente::class);
         }else{
             $resultado = $this->select(
-                'SELECT * FROM Cliente'
+                'SELECT * FROM clie '
             );
             return $resultado->fetchAll(\PDO::FETCH_CLASS, Cliente::class);
         }
@@ -28,24 +29,26 @@ class ClienteDAO extends BaseDAO
     {
         try {
           
-          $Clie_nome  =      getClie_nome();
-          $Clie_emai  =      getClie_emai();
-          $Clie_nofa  =      getClie_nofa();
-          $Clie_tele  =      getClie_tele();
-          $Clie_cnpj  =      getClie_cnpj();
-          $Clie_tipo  =      getClie_tipo();
-          $Clie_situ  =      getClie_situ();
-          $Clie_dtco  =      getClie_dtco();
-          $Clie_logr  =      getClie_logr();
-          $Clie_nume  =      getClie_nume();
-          $Clie_bair  =      getClie_bair();
-          $Clie_copl  =      getClie_copl();
-          $Clie_cida  =      getClie_cida();
-          $Clie_esta  =      getClie_esta();
-          $Clie_obse  =      getClie_obse();
+          $Clie_nome  =  $Cliente->getClie_nome();
+          $Clie_emai  =  $Cliente->getClie_emai();
+          $Clie_nofa  =  $Cliente->getClie_nofa();
+          $Clie_tele  =  $Cliente->getClie_tele();
+          $Clie_cnpj  =  $Cliente->getClie_cnpj();
+          $Clie_tipo  =  $Cliente->getClie_tipo();
+          $Clie_situ  = (int) $Cliente->getClie_situ();
+          $Clie_dtco  =  $Cliente->getClie_dtco();
+          $Clie_logr  =  $Cliente->getClie_logr();
+          $Clie_nume  = (int) $Cliente->getClie_nume();
+          $Clie_bair  =  $Cliente->getClie_bair();
+          $Clie_copl  =  $Cliente->getClie_copl();
+          $Clie_cida  =  $Cliente->getClie_cida();
+          $Clie_esta  =  $Cliente->getClie_esta();
+          $Clie_obse  =  $Cliente->getClie_obse();
+
+          $Clie_dtco = implode("-", array_reverse(explode("/", trim($Clie_dtco))));
 
           return $this->insert(
-              'Cliente',
+              'clie',
               " :Clie_nome,
                 :Clie_emai,
                 :Clie_nofa,
@@ -89,25 +92,26 @@ class ClienteDAO extends BaseDAO
     {
         try {
 
-          $Clie_codi  =  getClie_codi();
-          $Clie_nome  =  getClie_nome();
-          $Clie_emai  =  getClie_emai();
-          $Clie_nofa  =  getClie_nofa();
-          $Clie_tele  =  getClie_tele();
-          $Clie_cnpj  =  getClie_cnpj();
-          $Clie_tipo  =  getClie_tipo();
-          $Clie_situ  =  getClie_situ();
-          $Clie_dtco  =  getClie_dtco();
-          $Clie_logr  =  getClie_logr();
-          $Clie_nume  =  getClie_nume();
-          $Clie_bair  =  getClie_bair();
-          $Clie_copl  =  getClie_copl();
-          $Clie_cida  =  getClie_cida();
-          $Clie_esta  =  getClie_esta();
-          $Clie_obse  =  getClie_obse();
+          $Clie_codi  =  $Cliente->getClie_codi();
+          $Clie_nome  =  $Cliente->getClie_nome();
+          $Clie_emai  =  $Cliente->getClie_emai();
+          $Clie_nofa  =  $Cliente->getClie_nofa();
+          $Clie_tele  =  $Cliente->getClie_tele();
+          $Clie_cnpj  =  $Cliente->getClie_cnpj();
+          $Clie_tipo  =  $Cliente->getClie_tipo();
+          $Clie_situ  = (int) $Cliente->getClie_situ();
+          $Clie_dtco  =  $Cliente->getClie_dtco();
+          $Clie_logr  =  $Cliente->getClie_logr();
+          $Clie_nume  = (int) $Cliente->getClie_nume();
+          $Clie_bair  =  $Cliente->getClie_bair();
+          $Clie_copl  =  $Cliente->getClie_copl();
+          $Clie_cida  =  $Cliente->getClie_cida();
+          $Clie_esta  =  $Cliente->getClie_esta();
+          $Clie_obse  =  $Cliente->getClie_obse();
+          $Clie_dtco = implode("-", array_reverse(explode("/", trim($Clie_dtco))));
 
             return $this->update(
-                'Cliente',
+                'Clie',
                 "Clie_nome  =  :Clie_nome,
                  Clie_emai  =  :Clie_emai,
                  Clie_nofa  =  :Clie_nofa,
@@ -154,7 +158,7 @@ class ClienteDAO extends BaseDAO
         try {
             $id = $Cliente->getId();
 
-            return $this->delete('Cliente',"Clie_codi = $Clie_codi");
+            return $this->delete('Clie',"Clie_codi = $Clie_codi");
 
         }catch (Exception $e){
 

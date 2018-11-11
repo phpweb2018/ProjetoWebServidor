@@ -51,7 +51,7 @@ class ClienteController extends Controller
         Sessao::gravaFormulario($_POST);
 
         $clienteValidador = new ClienteValidador();
-        $resultadoValidacao = $clienteValidador->validar($cliente);
+        $resultadoValidacao = $clienteValidador->validar($Cliente);
 
         if($resultadoValidacao->getErros()){
             Sessao::gravaErro($resultadoValidacao->getErros());
@@ -66,7 +66,7 @@ class ClienteController extends Controller
         Sessao::limpaMensagem();
         Sessao::limpaErro();
 
-        $this->redirect('/cliente');
+        $this->redirect('/Cliente');
       
     }
     

@@ -8,6 +8,7 @@ abstract class Controller
 {
     protected $app;
     private $viewVar;
+    private $rota;
 
     public function __construct($app)
     {
@@ -19,6 +20,12 @@ abstract class Controller
     {
         $viewVar   = $this->getViewVar();
         $Sessao    = Sessao::class;
+
+        $rota      = explode('/', (substr($view,0,1) == '/')?substr($view,1):$view);
+
+        if (($rotIndex = array_search('index', $rota)) !== false) {
+            unset($rota[$rotIndex]);
+        }
 
         require_once PATH . '/App/Views/layouts/cabecalho.php';
         require_once PATH . '/App/Views/layouts/sidebar.php';

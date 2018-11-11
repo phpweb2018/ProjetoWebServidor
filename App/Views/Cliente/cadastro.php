@@ -47,9 +47,9 @@
                             <label id="label-form"> Tipo<br>
                             </label>
                             <select class="custom-select shadow" id="dis_flecha" name="clie_tipo" required="required">
-                              <option selected="" value="Selecione">Selecione</option>
-                              <option value="1">CPF - Pessoa Física</option>
-                              <option value="2">CNPJ - Pessoa Jurídica</option>
+                              <option selected="" value="">Selecione</option>
+                              <option value="CPF">CPF - Pessoa Física</option>
+                              <option value="CNPJ">CNPJ - Pessoa Jurídica</option>
                             </select>
                           </div>
                         </div>
@@ -58,7 +58,7 @@
                             <label id="label-form" contenteditable="true"> Situação<br>
                             </label>
                             <select class="custom-select shadow" id="dis_flecha" name="clie_situ" required="required">
-                              <option selected="">Selecione</option>
+                              <option selected="" value="">Selecione</option>
                               <option value="1">Ativo</option>
                               <option value="2">Inativo</option>
                             </select>
