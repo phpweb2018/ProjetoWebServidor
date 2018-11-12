@@ -95,21 +95,22 @@ class ClienteController extends Controller
     {
 
         $cliente = new Cliente();
-        $Cliente->setClie_nome($_POST['clie_nome']);
-        $Cliente->setClie_emai($_POST['clie_emai']);
-        $Cliente->setClie_nofa($_POST['clie_nofa']);
-        $Cliente->setClie_tele($_POST['clie_tele']);
-        $Cliente->setClie_cnpj($_POST['clie_cnpj']);
-        $Cliente->setClie_tipo($_POST['clie_tipo']);
-        $Cliente->setClie_situ($_POST['clie_situ']);
-        $Cliente->setClie_dtco($_POST['clie_dtco']);
-        $Cliente->setClie_logr($_POST['clie_logr']);
-        $Cliente->setClie_nume($_POST['clie_nume']);
-        $Cliente->setClie_bair($_POST['clie_bair']);
-        $Cliente->setClie_copl($_POST['clie_copl']);
-        $Cliente->setClie_cida($_POST['clie_cida']);
-        $Cliente->setClie_esta($_POST['clie_esta']);
-        $Cliente->setClie_obse($_POST['clie_obse']);
+        $cliente->setClie_codi($_POST['clie_codi']);
+        $cliente->setClie_nome($_POST['clie_nome']);
+        $cliente->setClie_emai($_POST['clie_emai']);
+        $cliente->setClie_nofa($_POST['clie_nofa']);
+        $cliente->setClie_tele($_POST['clie_tele']);
+        $cliente->setClie_cnpj($_POST['clie_cnpj']);
+        $cliente->setClie_tipo($_POST['clie_tipo']);
+        $cliente->setClie_situ($_POST['clie_situ']);
+        $cliente->setClie_dtco($_POST['clie_dtco']);
+        $cliente->setClie_logr($_POST['clie_logr']);
+        $cliente->setClie_nume($_POST['clie_nume']);
+        $cliente->setClie_bair($_POST['clie_bair']);
+        $cliente->setClie_copl($_POST['clie_copl']);
+        $cliente->setClie_cida($_POST['clie_cida']);
+        $cliente->setClie_esta($_POST['clie_esta']);
+        $cliente->setClie_obse($_POST['clie_obse']);
 
         Sessao::gravaFormulario($_POST);
 
@@ -118,7 +119,7 @@ class ClienteController extends Controller
 
         if($resultadoValidacao->getErros()){
             Sessao::gravaErro($resultadoValidacao->getErros());
-            $this->redirect('/cliente/edicao/'.$_POST['id']);
+            $this->redirect('/cliente/edicao/'.$_POST['clie_codi']);
         }
 
         $clienteDAO = new ClienteDAO();

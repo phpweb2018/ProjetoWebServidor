@@ -42,7 +42,7 @@
     <!-- Rota -->
       <div class="container-full" >
         <div class="col-md-12 "  id="zera-MarginEpadding">
-          <ul class="breadcrumb" id='Rota'>
+          <ul class="breadcrumb bg-light" id='Rota'>
             <?php
               if (count($rota) > 1) {
                 foreach ($rota as $rt) {
