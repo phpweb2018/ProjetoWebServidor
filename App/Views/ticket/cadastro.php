@@ -9,14 +9,14 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-12" style="">
-                  <form action="http://<?php echo APP_HOST; ?>/ticket/salvar" method="post" class="justify-content-start shadow" style="">
+                  <form action="http://<?php echo APP_HOST; ?>/ticket/salvar" method="post"  id="form_cadastro">
                     <div class="form-group border-primary"> 
                       <label class="label" style="" id="label-form">Título</label> 
                       <input type="text" name="tick_titulo" class="form-control shadow" placeholder="Insira seu nome" required="required" style="	transform: rotate(14);"> 
                     </div>
                     <div class="form-group">
                       <label id="label-form">Cliente<br></label> 
-                      <input type="number" name="tick_cliente" class="form-control shadow" placeholder="Nome do Cliente"> 
+                      <input type="number"  name="tick_cliente" class="form-control shadow" placeholder="Nome do Cliente"> 
                     </div>
                     <div class="form-group">
                       <label id="label-form">Responsável</label>
@@ -66,7 +66,7 @@
                         <option <?php if($Sessao::retornaValorFormulario('tick_departamento') == 'Financeiro'){echo("selected");}?> value="Financeiro">Financeiro</option>
                       </select>
                     </div>
-                  <button type="submit" class="btn text-white btn-success mx-0 ml-0 mr-0" style="" id="label-form"><i class="fa fa-fw fa-check fa-lg d-inline-block"></i>Gravar</button>
+                  <button type="submit" class="btn text-white btn-success mx-0 ml-0 mr-0" style="" id="button-form-direita"><i class="fa fa-fw fa-check fa-lg d-inline-block"></i>Gravar</button>
           </form>
                     
                                       </div>
