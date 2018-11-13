@@ -22,7 +22,7 @@
             <a href="#">Usuários</a>
           </li>                    
           <li>
-            <a href="#">Ticket's</a>
+            <a href="http://<?php echo APP_HOST; ?>/ticket/cadastro">Ticket's</a>
           </li>
           </ul>
           </li>

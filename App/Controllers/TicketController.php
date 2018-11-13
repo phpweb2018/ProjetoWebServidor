@@ -20,7 +20,7 @@ class TicketController extends Controller
         Sessao::limpaMensagem();
     }
 
-    public function ticket()
+    public function cadastro()
     {
         $this->render('/ticket/cadastro');
 

@@ -27,18 +27,24 @@ class TicketDAO extends BaseDAO
     public  function salvar(Ticket $Ticket) 
     {
         try {
-
             $tick_titulo           = $Ticket->getTick_titulo();
-            $tick_cliente          = $Ticket->getTick_cliente();
+            $tick_cliente          = (int)$Ticket->getTick_cliente();
             $tick_responsavel      = $Ticket->getTick_responsavel();
             $tick_situacao         = $Ticket->getTick_situacao();
-            $tick_prioridade       = $Ticket->getTick_prioridade();
+            $tick_prioridade       = (int)$Ticket->getTick_prioridade();
             $tick_criacao          = $Ticket->getTick_criacao();
             $tick_departamento     = $Ticket->getTick_departamento();
+            $tick_criacao = implode("-", array_reverse(explode("/", trim($tick_criacao))));
      
             return $this->insert(
-                'Ticket',
-                ":tick_titulo,:tick_cliente,:tick_responsavel,:tick_situacao,:tick_prioridade,:tick_criacao,:tick_departamento",
+                'tick',
+                ":tick_titulo,
+                :tick_cliente,
+                :tick_responsavel,
+                :tick_situacao,
+                :tick_prioridade,
+                :tick_criacao,
+                :tick_departamento",
                 [
                     ':tick_titulo'=>$tick_titulo,
                     ':tick_cliente'=>$tick_cliente,
@@ -51,7 +57,7 @@ class TicketDAO extends BaseDAO
             );
 
         }catch (\Exception $e){
-            throw new \Exception("Erro na gravação de dados.", 500);
+            throw new \Exception("Erro na gravação de dados.".$e, 500);
         }
     }
 
