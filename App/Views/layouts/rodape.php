@@ -13,6 +13,9 @@ a aberturas dessas tags foi realizada na side bar -->
   <script src="http://<?php echo APP_HOST; ?>/node_modules/popper.js/dist/popper.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/public/js/sidebar.js"></script>
+  <script src="http://<? echo APP_HOST; ?>/public/js/kanban.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 </body>
 </html>
