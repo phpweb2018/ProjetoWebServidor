@@ -111,7 +111,7 @@
                                 <label id="label-form" contenteditable="true"> UF - Estado<br>
                                 </label>
                                 <select class="custom-select shadow"  id="dis_flecha" name="clie_esta" required="required">
-                                <option <?php if($Sessao::retornaValorFormulario('clie_esta') == ''){echo("selected");}?> selected disabled hidden value="" >Selecione</option>
+                                  <option <?php if($Sessao::retornaValorFormulario('clie_esta') == ''){echo("selected");}?>  disabled hidden value="" >Selecione</option>
                                   <option <?php if($Sessao::retornaValorFormulario('clie_esta') == 'AC'){echo("selected");}?> value="AC" >AC - Acre </option>
                                   <option <?php if($Sessao::retornaValorFormulario('clie_esta') == 'AL'){echo("selected");}?> value="AL" >AL - Alagoas </option>
                                   <option <?php if($Sessao::retornaValorFormulario('clie_esta') == 'AP'){echo("selected");}?> value="AP" >AP - Amapá </option>

@@ -48,7 +48,7 @@
                           <i class="fas fa-edit"></i>
                             Editar
                           </a>
-                          <a href="http://<?php echo APP_HOST; ?>/cliente/exclusao/<?php echo $cliente->getClie_codi(); ?>" class="btn btn-danger btn-sm">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>
@@ -68,24 +68,32 @@
     </div>
 </div>
 
-<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<!--Modal: modalConfirmDelete-->
+<div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-bm modal-notify modal-danger" role="document"> 
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header lg-light d-flex justify-content-center">
+        <p class="heading text-secondary">Confirma a Exclusão do Cliente <strong><?php echo $cliente->getClie_nome(); ?> </strong> ?</p>
       </div>
+      <!--Corpo-->
       <div class="modal-body">
-        <h3>Modal Body</h3>
+        <i class="fa fa-times fa-4x animated rotateIn text-danger"></i>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <!--Rodapé-->
+      <div class="modal-footer flex-center">
+      <form action="http://<?php echo APP_HOST; ?>/cliente/excluir" method="post" id="form_cadastro">
+        <!-- <a href="" class="btn  btn-outline-primary">Sim</a> -->
+        <input type="hidden" class="form-control" name="clie_codi" id="id" value="<?php echo $cliente->getClie_Codi(); ?>">
+        <button type="submit" class="btn btn-outline-primary">Sim</button>
+        <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">Não</a>
+      </form> 
       </div>
     </div>
+    <!--/.Conteudo-->
   </div>
 </div>
+<!--Modal: modalConfirmDelete-->
 
 </section>

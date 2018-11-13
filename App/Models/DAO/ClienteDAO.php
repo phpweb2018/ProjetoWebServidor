@@ -156,7 +156,7 @@ class ClienteDAO extends BaseDAO
     public function excluir(Cliente $Cliente)
     {
         try {
-            $id = $Cliente->getId();
+            $id = $Cliente->getClie_Codi();
 
             return $this->delete('Clie',"Clie_codi = $Clie_codi");
 
