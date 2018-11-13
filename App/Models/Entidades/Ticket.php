@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Tickets;
+namespace App\Models\Entidades;
 
 use DateTime;
 
