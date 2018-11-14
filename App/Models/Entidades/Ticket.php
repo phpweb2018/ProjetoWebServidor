@@ -6,11 +6,12 @@ use DateTime;
 
 class Ticket
 {
-    private $tick_ID;
+    private $tick_id;
     private $tick_titulo;
     private $tick_cliente;
     private $tick_responsavel;
     private $tick_situacao;
+    private $tick_descricao;
     private $tick_prioridade;
     private $tick_criacao;
     private $tick_departamento;
@@ -107,6 +108,18 @@ class Ticket
     public function setTick_ID($tick_ID)
     {
         $this->tick_ID = $tick_ID;
+
+        return $this;
+    }
+
+    public function getTick_descricao()
+    {
+        return $this->tick_descricao;
+    }
+
+    public function setTick_descricao($tick_descricao)
+    {
+        $this->tick_descricao = $tick_descricao;
 
         return $this;
     }

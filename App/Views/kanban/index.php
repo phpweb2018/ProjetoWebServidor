@@ -22,7 +22,7 @@
                         <article class="kanban-entry grab" id="item1" draggable="true">
                             <div class="kanban-entry-inner">
                                 <div class="kanban-label">
-                                    <h2><a href="#"><?php echo $viewVar->getTick_titulo();?></a> <span>posted a status update</span></h2>
+                                    <h2><a href="#"><?php echo $tickets->getTick_titulo();?></a> <span>posted a status update</span></h2>
                                     <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
                                 </div>
                             </div>

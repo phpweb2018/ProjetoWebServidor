@@ -25,6 +25,7 @@ create table tick(
     tick_cliente integer,
     tick_responsavel varchar(100),
     tick_situacao varchar(50),
+    tick_descricao text,
     tick_prioridade integer,
     tick_criacao Date,
     tick_departamento varchar(100)
