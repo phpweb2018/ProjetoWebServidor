@@ -8,7 +8,7 @@
     </div>
     <ul class="list-unstyled components">
       <li>
-        <a href="#">
+        <a href="http://<?php echo APP_HOST; ?>/kanban">
           <i class="fas fa-columns"></i>Kanban
         </a>
         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
