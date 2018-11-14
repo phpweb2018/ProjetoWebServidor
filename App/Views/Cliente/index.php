@@ -1,5 +1,5 @@
 <section>
-<div class="container-ful">
+<div class="container-full">
     <div class="card bg-light mb-10" >
       <!--filtro-->
       <div class="card-body">
