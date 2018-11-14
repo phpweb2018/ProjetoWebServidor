@@ -148,8 +148,8 @@
                       <div class="form-group">
                         <label id="label-form">Observações</label>
                         <textarea class="form-control shadow" rows="3" placeholder="..." name="clie_obse" value="<?php echo $Sessao::retornaValorFormulario('clie_obse'); ?>">
-                        </textarea
-                      ></div>
+                        </textarea>
+                      </div>
                       <div class="row">
                         <div class="col-md-10 pt-3 pb-1 ">
                         <a href="http://<?php echo APP_HOST; ?>/cliente"  id="button-form" class="btn btn-info btn-sm">

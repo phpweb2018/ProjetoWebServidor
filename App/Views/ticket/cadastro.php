@@ -12,11 +12,16 @@
                   <form action="http://<?php echo APP_HOST; ?>/ticket/salvar" method="post"  id="form_cadastro">
                     <div class="form-group border-primary"> 
                       <label class="label" style="" id="label-form">Título</label> 
-                      <input type="text" name="tick_titulo" class="form-control shadow" placeholder="Insira seu nome" required="required" style="	transform: rotate(14);"> 
+                      <input type="text" name="tick_titulo" class="form-control shadow" placeholder="Insira o título" required="required" style="	transform: rotate(14);"> 
                     </div>
                     <div class="form-group">
                       <label id="label-form">Cliente<br></label> 
                       <input type="number"  name="tick_cliente" class="form-control shadow" placeholder="Nome do Cliente"> 
+                    </div>
+                    <div class="form-group">
+                      <label id="label-form">Descrição</label>
+                      <textarea class="form-control shadow" rows="3" name="tick_descricao" value="<?php echo $Sessao::retornaValorFormulario('tick_descricao'); ?>">
+                      </textarea>
                     </div>
                     <div class="form-group">
                       <label id="label-form">Responsável</label>
@@ -41,19 +46,19 @@
                     <label class="" id="label-form">Prioridade</label><br>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="tick_prioridade" id="RadioP1" value="3">
-                        <label class="form-check-label" for="RadioP1">3 - Pouca Urgência</label>
+                        <label class="form-check-label" for="RadioP1">Pouca Urgência</label>
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="tick_prioridade" id="RadioP2" value="2">
-                        <label class="form-check-label" for="RadioP2">2 - Urgente</label>
+                        <label class="form-check-label" for="RadioP2">Urgente</label>
                       </div>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="tick_prioridade" id="RadioP3" value="1">
-                        <label class="form-check-label" for="RadioP3">1 - Extremamente Urgente</label>
+                        <label class="form-check-label" for="RadioP3">Extremamente Urgente</label>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label id="label-form">Criação<br></label>
+                      <label id="label-form">Data da Criação<br></label>
                       <input type="date" class="form-control w-25" name="tick_criacao" id="inlineFormInput" placeholder="Jane Doe">
                     </div>
                     <div class="form-group">
@@ -67,9 +72,8 @@
                       </select>
                     </div>
                   <button type="submit" class="btn text-white btn-success mx-0 ml-0 mr-0" style="" id="button-form-direita"><i class="fa fa-fw fa-check fa-lg d-inline-block"></i>Gravar</button>
-          </form>
-                    
-                                      </div>
+                </form>
+                </div>
                 </div>
               </div>
             </div>
