@@ -6,7 +6,7 @@ use DateTime;
 
 class Ticket
 {
-    private $tick_id;
+    private $tick_ID;
     private $tick_titulo;
     private $tick_cliente;
     private $tick_responsavel;

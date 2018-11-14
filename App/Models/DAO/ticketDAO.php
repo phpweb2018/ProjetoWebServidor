@@ -38,6 +38,7 @@ class TicketDAO extends BaseDAO
             $tick_cliente          = (int)$Ticket->getTick_cliente();
             $tick_responsavel      = $Ticket->getTick_responsavel();
             $tick_situacao         = $Ticket->getTick_situacao();
+            $tick_descricao        = $Ticket->getTick_descricao();
             $tick_prioridade       = (int)$Ticket->getTick_prioridade();
             $tick_criacao          = $Ticket->getTick_criacao();
             $tick_departamento     = $Ticket->getTick_departamento();
@@ -49,6 +50,7 @@ class TicketDAO extends BaseDAO
                 :tick_cliente,
                 :tick_responsavel,
                 :tick_situacao,
+                :tick_descricao,
                 :tick_prioridade,
                 :tick_criacao,
                 :tick_departamento",
@@ -57,6 +59,7 @@ class TicketDAO extends BaseDAO
                     ':tick_cliente'=>$tick_cliente,
                     ':tick_responsavel'=>$tick_responsavel,
                     ':tick_situacao'=>$tick_situacao,
+                    ':tick_descricao'=>$tick_descricao,
                     ':tick_prioridade'=>$tick_prioridade,
                     ':tick_criacao'=>$tick_criacao,
                     ':tick_departamento'=>$tick_departamento
@@ -77,6 +80,7 @@ class TicketDAO extends BaseDAO
             $tick_cliente          = $Ticket->getTick_cliente();
             $tick_responsavel      = $Ticket->getTick_responsavel();
             $tick_situacao         = $Ticket->getTick_situacao();
+            $tick_descricao        = $Ticket->getTick_descricao();
             $tick_prioridade       = $Ticket->getTick_prioridade();
             $tick_criacao          = $Ticket->getTick_criacao();
             $tick_departamento     = $Ticket->getTick_departamento();
@@ -84,7 +88,8 @@ class TicketDAO extends BaseDAO
             return $this->update(
                 'Ticket',
                 "tick_ID = :tick_ID, tick_titulo = :tick_titulo, tick_cliente = :tick_cliente, 
-                tick_responsavel = :tick_responsavel, tick_situacao = :tick_situacao, tick_prioridade = :tick_prioridade,
+                tick_responsavel = :tick_responsavel, tick_situacao = :tick_situacao, tick_descricao = :tick_descricao, 
+                tick_prioridade = :tick_prioridade,
                 tick_criacao = :tick_criacao, tick_departamento = :tick_departamento",
                 [
                     ':tick_ID'=>$tick_ID,
@@ -92,6 +97,7 @@ class TicketDAO extends BaseDAO
                     ':tick_cliente'=>$tick_cliente,
                     ':tick_responsavel'=>$tick_responsavel,
                     ':tick_situacao'=>$tick_situacao,
+                    ':tick_descricao'=>$tick_descricao,
                     ':tick_prioridade'=>$tick_prioridade,
                     ':tick_criacao'=>$tick_criacao,
                     ':tick_departamento'=>$tick_departamento

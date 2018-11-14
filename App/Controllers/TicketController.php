@@ -39,6 +39,7 @@ class TicketController extends Controller
         $ticket->setTick_prioridade($_POST['tick_prioridade']);
         $ticket->setTick_criacao($_POST['tick_criacao']);
         $ticket->setTick_departamento($_POST['tick_departamento']);
+        $ticket->setTick_descricao($_POST['tick_descricao']);
 
         Sessao::gravaFormulario($_POST);
 
@@ -94,6 +95,7 @@ class TicketController extends Controller
         $ticket->setTick_prioridade($_POST['tick_prioridade']);
         $ticket->setTick_criacao($_POST['tick_criacao']);
         $ticket->setTick_departamento($_POST['tick_departamento']);
+        $ticket->setTick_descricao($_POST['tick_descricao']);
 
         Sessao::gravaFormulario($_POST);
 
