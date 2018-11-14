@@ -10,18 +10,25 @@
                 </div>
                 <div class="panel-body">
                     <div id="TODO" class="kanban-centered">
-                        
+                    <?php
+                        if(!count($viewVar['listaTickets'])){
+                    ?>
+                        <div class="alert alert-info" role="alert">Nenhum Ticket encontrado</div>
+                    <?php
+                    } else {
+                    ?>
               <!-- Aqui deve ser feito o foreach das tarefas pendentes-->
-                        
+                        <?php foreach($viewVar['listaTickets'] as $tickets){?>
                         <article class="kanban-entry grab" id="item1" draggable="true">
                             <div class="kanban-entry-inner">
                                 <div class="kanban-label">
-                                    <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                    <h2><a href="#"><?php echo $viewVar->getTick_titulo();?></a> <span>posted a status update</span></h2>
                                     <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
                                 </div>
                             </div>
                         </article>
-
+                        <?php } ?>
+                        <?php } ?>
             <!-- até aqui -->
 
                     </div>
