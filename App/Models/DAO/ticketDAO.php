@@ -24,6 +24,8 @@ class TicketDAO extends BaseDAO
         return false;
     }
 
+    
+
     public  function salvar(Ticket $Ticket) 
     {
         try {
