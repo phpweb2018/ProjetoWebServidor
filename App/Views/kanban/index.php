@@ -1,81 +1,104 @@
-<!-- Simple MDL Progress Bar -->
-<div id="p1" class="mdl-progress mdl-js-progress"></div>
-<script>
-  document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
-    this.MaterialProgress.setProgress(44);
-  });
-</script><div class="kanban__title">
-      <h1><i class="material-icons">check</i> To do list</h1></div>
-<div class="dd">
+<section>
+<div class="container-fluid">
+        <div id="sortableKanbanBoards" class="row">
 
-  <ol class="kanban To-do">
-    <div class="kanban__title">
-      <h2><i class="material-icons">report_problem</i> To do</h2></div>
-   <li class="dd-item" data-id="1">
-      <h3 class="title dd-handle" >Do the dishes<i class=" material-icons ">filter_none</i></h3>
-        <div class="text" contenteditable="true">wwPaul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer 
-    
-     </div> <i class="material-icons" id="label blue">label</i><div class="actions">
-        <i class="material-icons" id="color">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-    <li class="dd-item" data-id="4">
-      <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i>log-in bug</h3>
-        <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-    <li class="dd-item" data-id="3">
-      <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i>UX design</h3>
-        <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    
-    <div class="actions">
-      <button class="addbutt"><i class="material-icons">control_point</i> Add new</button>
-    </div>
-  </ol>
-  <ol class="kanban progress">
-    <h2><i class="material-icons">build</i> In progress</h2>
-      <li class="dd-item" data-id="5">
-      <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i>  title of job</h3>
-        <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-  </ol>
-  <ol class="kanban  Done">
-    <h2><i class="material-icons">check_circle</i> Done</h2>
-      <li class="dd-item" data-id="5">
-      <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i>  title of job</h3>
-        <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li></li><li class="dd-item" data-id="2">
-      <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i>  title of job</h3>
-        <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-    <div class="actions">
-      <button class="addbutt"><i class="material-icons">control_point</i> Add new</button>
-    </div>
-  </ol>
-  <ol class="kanban Gone">
-    <h2><i class="material-icons">delete</i> Gone</h2>
-     <li class="dd-item" data-id="5">
-      <h3 class="title dd-handle"><i class=" material-icons ">filter_none</i>  title of job</h3>
-        <div class="text" contenteditable="true">Paul Rand once said, “The public is more familiar with bad fucking design than good design. It is, in effect, conditioned to prefer bad design,</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-    <div class="actions">
-      <button class="addbutt"><i class="material-icons">control_point</i> Add new</button>
-    </div>
-  </ol>
+            <!--sütun başlangıç-->
+            <div class="panel panel-primary kanban-col">
+                <div class="panel-heading">
+                    Pendente
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <div class="panel-body">
+                    <div id="TODO" class="kanban-centered">
+                        
+              <!-- Aqui deve ser feito o foreach das tarefas pendentes-->
+                        
+                        <article class="kanban-entry grab" id="item1" draggable="true">
+                            <div class="kanban-entry-inner">
+                                <div class="kanban-label">
+                                    <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                    <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                                </div>
+                            </div>
+                        </article>
 
-</div>
-<menu class="kanban"><button><i class="material-icons">settings</i></button> <button><i class="material-icons">chevron_left</i></button>
-  <button class="viewkanban"><i class="material-icons ">view_column</i></button>
-  <button class="viewlist"><i class="material-icons">view_list</i></button>
-  <button><i class="material-icons">playlist_add</i> Add new Column</button></menu>
+            <!-- até aqui -->
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel panel-primary kanban-col">
+                <div class="panel-heading">
+                    Trabalhando
+                    <i class="fas fa-running"></i>
+                </div>
+                <div class="panel-body">
+                    <div id="DOING" class="kanban-centered">
+
+
+              <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
+
+                        <article class="kanban-entry grab" id="item5" draggable="true">
+                            <div class="kanban-entry-inner">
+
+                                <div class="kanban-label">
+                                    <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                    <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                                </div>
+                            </div>
+                        </article>
+
+              <!-- até aqui -->
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel panel-primary kanban-col">
+                <div class="panel-heading">
+                    Concluido
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="panel-body">
+                    <div id="DONE" class="kanban-centered">
+
+
+              <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
+
+
+                        <article class="kanban-entry grab" id="item5" draggable="true">
+                            <div class="kanban-entry-inner">
+                                <div class="kanban-label">
+                                    <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                    <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                                </div>
+                            </div>
+                        </article>
+
+            <!-- até aqui -->
+
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Static Modal -->
+    <div class="modal modal-static fade" id="processing-modal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fa fa-refresh fa-5x fa-spin"></i>
+                        <h4>Carregando...</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+</section>
