@@ -20,6 +20,7 @@ create table clie(
 
 create table tick(
     tick_ID integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -- tick_ID serial PRIMARY KEY, /*postgres*/ 
     tick_titulo varchar(100),
     tick_cliente integer,
     tick_responsavel varchar(100),

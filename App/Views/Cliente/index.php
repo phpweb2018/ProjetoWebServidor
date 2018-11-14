@@ -26,7 +26,7 @@
             } else {
         ?>
         <div class="table-responsive">
-            <table class="table table-bordered table-hover">
+            <table id="tabela" class="table table-striped table-bordered" style="width:100%">
               <thead>
                 <th >Nome</th>
                 <th >Tipo</th>
@@ -48,7 +48,7 @@
                           <i class="fas fa-edit"></i>
                             Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $cliente->getClie_codi()?>, '<?php echo $cliente->getClie_nome()?>' );">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>
@@ -75,7 +75,7 @@
     <div class="modal-content text-center">
       <!--Header-->
       <div class="modal-header lg-light d-flex justify-content-center">
-        <p class="heading text-secondary">Confirma a Exclusão do Cliente <strong><?php echo $cliente->getClie_nome(); ?> </strong> ?</p>
+        <p class="heading text-secondary">Confirma a Exclusão do Cliente <strong id="nomeCliente"></strong> ?</p>
       </div>
       <!--Corpo-->
       <div class="modal-body">
@@ -85,7 +85,7 @@
       <div class="modal-footer flex-center">
       <form action="http://<?php echo APP_HOST; ?>/cliente/excluir" method="post" id="form_cadastro">
         <!-- <a href="" class="btn  btn-outline-primary">Sim</a> -->
-        <input type="hidden" class="form-control" name="clie_codi" id="id" value="<?php echo $cliente->getClie_Codi(); ?>">
+        <input type="hidden" class="form-control" name="clie_codi" id="selecionada" value="0">
         <button type="submit" class="btn btn-outline-primary">Sim</button>
         <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">Não</a>
       </form> 
@@ -95,5 +95,6 @@
   </div>
 </div>
 <!--Modal: modalConfirmDelete-->
+
 
 </section>

@@ -1,0 +1,15 @@
+table{
+  width:100%;
+}
+#tabela_filter{
+  float:right;
+}
+#tabela_paginate{
+  float:right;
+}
+label {
+  display: inline-flex;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+ 
+}

@@ -13,6 +13,15 @@ a aberturas dessas tags foi realizada na side bar -->
   <script src="http://<?php echo APP_HOST; ?>/node_modules/popper.js/dist/popper.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/public/js/sidebar.js"></script>
+  <script src="http://<?php echo APP_HOST; ?>/public/js/formulario.js"></script>
+  <script src="http://<?php echo APP_HOST; ?>/public/js/datatable.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="path/to/jkanban.min.js"></script>
+
+
+
+
 
 </body>
 </html>
