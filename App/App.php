@@ -17,16 +17,16 @@ class App
         define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/ProjetoWebServidor");
         define('PATH'           , realpath('./'));
         define('TITLE'          , "Hass - Soluções");
-        define('DB_HOST'        , "localhost:3307");
-        define('DB_USER'        , "root");
-        define('DB_PASSWORD'    , "");
-        define('DB_NAME'        , "php2018");
-        define('DB_DRIVER'      , "mysql");
-        // define('DB_HOST'        , "localhost");
-        // define('DB_USER'        , "postgres");
-        // define('DB_PASSWORD'    , "postgres");
-        // define('DB_NAME'        , "hasssolucoes");
-        // define('DB_DRIVER'      , "pgsql");
+        // define('DB_HOST'        , "localhost:3307");
+        // define('DB_USER'        , "root");
+        // define('DB_PASSWORD'    , "");
+        // define('DB_NAME'        , "php2018");
+        // define('DB_DRIVER'      , "mysql");
+        define('DB_HOST'        , "localhost");
+        define('DB_USER'        , "postgres");
+        define('DB_PASSWORD'    , "postgres");
+        define('DB_NAME'        , "hasssolucoes");
+        define('DB_DRIVER'      , "pgsql");
 
         $this->url();
     }

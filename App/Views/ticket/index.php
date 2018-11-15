@@ -48,7 +48,7 @@
                           <i class="fas fa-edit"></i>
                             Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $ticket->getTick_ID()?>, '<?php echo $ticket->getTick_titulo()?>' );">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $ticket->getTick_ID();?>, '<?php echo $ticket->getTick_titulo();?>' );">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>
@@ -67,6 +67,9 @@
       </div>
     </div>
 </div>
+
+
+ 
 <!--Modal: modalConfirmDelete-->
 <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -74,7 +77,7 @@
     <div class="modal-content text-center">
       <!--Header-->
       <div class="modal-header lg-light d-flex justify-content-center">
-        <p class="heading text-secondary">Confirma a Exclusão do Cliente <strong id="nomeCliente"></strong> ?</p>
+        <p class="heading text-secondary">Confirma a Exclusão do Cliente <strong id="nomeExclusão"></strong> ?</p>
       </div>
       <!--Corpo-->
       <div class="modal-body">

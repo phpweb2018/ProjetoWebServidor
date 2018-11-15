@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="card bg-light mb-3">
-            <div class="card-header">Cadastro de Cliente</div>
+            <div class="card-header">Cadastro de Ticket</div>
             <div class="card-body">
             <div class="py-5"  id="zera-MarginEpadding">
               <div class="container">
@@ -16,7 +16,19 @@
                     </div>
                     <div class="form-group">
                       <label id="label-form">Cliente<br></label> 
-                      <input type="number"  name="tick_cliente" class="form-control shadow" placeholder="Nome do Cliente"> 
+                      <select class="custom-select" id="dis_flecha" name="tick_cliente">
+                        <option <?php if($Sessao::retornaValorFormulario('tick_cliente') == ''){echo("selected");}?> value="" disabled hidden>Selecione</option>
+                        <!-- laço para preencher os clientes -->
+                        <?php
+                          if(count($viewVar['listaClieCombo']) >= 1){
+                            foreach($viewVar['listaClieCombo'] as $clientes) {
+                        ?>
+                          <option <?php if($Sessao::retornaValorFormulario('tick_cliente') == $clientes->getClie_codi()){echo("selected");}?> value="<?php echo $clientes->getClie_codi(); ?>"><?php echo $clientes->getClie_nome(); ?></option>
+                        <?php
+                            }
+                          }
+                        ?>
+                      </select>
                     </div>
                     <div class="form-group">
                       <label id="label-form">Descrição</label>
@@ -63,7 +75,7 @@
                     </div>
                     <div class="form-group">
                       <label id="label-form">Departamento</label>
-                      <select class="custom-select" id="dis_flecha" name="tick_departamento">
+                        <select class="custom-select" id="dis_flecha" name="tick_departamento">
                         <option <?php if($Sessao::retornaValorFormulario('tick_departamento') == ''){echo("selected");}?> value="" disabled hidden>Selecione</option>
                         <option <?php if($Sessao::retornaValorFormulario('tick_departamento') == 'Administrativo'){echo("selected");}?> value="Administrativo">Administrativo</option>
                         <option <?php if($Sessao::retornaValorFormulario('tick_departamento') == 'Suporte'){echo("selected");}?> value="Suporte">Suporte</option>
@@ -71,7 +83,20 @@
                         <option <?php if($Sessao::retornaValorFormulario('tick_departamento') == 'Financeiro'){echo("selected");}?> value="Financeiro">Financeiro</option>
                       </select>
                     </div>
-                  <button type="submit" class="btn text-white btn-success mx-0 ml-0 mr-0" style="" id="button-form-direita"><i class="fa fa-fw fa-check fa-lg d-inline-block"></i>Gravar</button>
+                    <div class="row">
+                        <div class="col-md-10 pt-3 pb-1 ">
+                          <a href="http://<?php echo APP_HOST; ?>/ticket"  id="button-form" class="btn btn-info btn-sm">
+                            <i class="fas fa-arrow-left"></i>
+                            Voltar
+                          </a>
+                        </div>
+                        <div class="col-md-2 pt-3 pb-1 align-self-end">
+                        <button type="submit" class="btn text-white btn-success mx-0 ml-0 mr-0" id="button-form-direita">
+                          <i class="fa fa-fw fa-check fa-lg d-inline-block"></i>
+                          Gravar
+                        </button>
+                        </div>
+                      </div>  
                 </form>
                 </div>
                 </div>

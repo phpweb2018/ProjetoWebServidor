@@ -24,6 +24,15 @@ class TicketDAO extends BaseDAO
         return false;
     }
 
+    public  function listarIndex()
+    {
+      $resultado = $this->select(
+          'SELECT tick_ID, tick_titulo, clie_nome as tick_cliente, tick_responsavel, tick_situacao FROM Tick 
+           LEFT JOIN clie ON tick_cliente = clie_codi'
+      );
+      return $resultado->fetchAll(\PDO::FETCH_CLASS, Ticket::class);
+    }
+
     public  function listar_situacao($situ)
     {
             $resultado = $this->select(

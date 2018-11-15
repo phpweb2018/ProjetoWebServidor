@@ -25,6 +25,16 @@ class ClienteDAO extends BaseDAO
         return false;
     }
 
+    public function listarClieCombo()
+    {
+      $resultado = $this->select(
+          'SELECT clie_codi, clie_nome FROM clie'
+      );
+      
+      return $resultado->fetchAll(\PDO::FETCH_CLASS, Cliente::class);
+       
+    }
+
     public  function salvar(Cliente $Cliente) 
     {
         try {

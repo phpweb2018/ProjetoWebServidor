@@ -48,7 +48,6 @@
                           <i class="fas fa-edit"></i>
                             Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $cliente->getClie_codi()?>, '<?php echo $cliente->getClie_nome()?>' );">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>
@@ -67,7 +66,7 @@
       </div>
     </div>
 </div>
-
+ 
 <!--Modal: modalConfirmDelete-->
 <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -75,7 +74,7 @@
     <div class="modal-content text-center">
       <!--Header-->
       <div class="modal-header lg-light d-flex justify-content-center">
-        <p class="heading text-secondary">Confirma a Exclusão do Cliente <strong id="nomeCliente"></strong> ?</p>
+        <p class="heading text-secondary">Confirma a Exclusão do Cliente <strong id="nomeExclusao"></strong> ?</p>
       </div>
       <!--Corpo-->
       <div class="modal-body">

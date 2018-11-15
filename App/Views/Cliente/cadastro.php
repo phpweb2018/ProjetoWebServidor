@@ -152,18 +152,16 @@
                       </div>
                       <div class="row">
                         <div class="col-md-10 pt-3 pb-1 ">
-                        <a href="http://<?php echo APP_HOST; ?>/cliente"  id="button-form" class="btn btn-info btn-sm">
-                          <i class="fas fa-arrow-left"></i>
+                          <a href="http://<?php echo APP_HOST; ?>/cliente"  id="button-form" class="btn btn-info btn-sm">
+                            <i class="fas fa-arrow-left"></i>
                             Voltar
                           </a>
                         </div>
                         <div class="col-md-2 pt-3 pb-1 align-self-end">
                           <button  type="submit" class="btn btn-success btn-sm " id="button-form-direita">
-                          <i class="fas fa-save"></i>  Gravar                 
+                            <i class="fas fa-save"></i>  Gravar                 
                           </button>
                         </div>
-                      </div>
-                      <div class="form-group">
                       </div>
                     </form>
                   </div>

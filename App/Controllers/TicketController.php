@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Lib\Sessao;
 use App\Models\DAO\ticketDAO;
 use App\Models\Entidades\Ticket;
+use App\Models\DAO\clienteDAO;
 use App\Models\Validacao\TicketValidador;
 
 class TicketController extends Controller
@@ -13,7 +14,7 @@ class TicketController extends Controller
     {
         $ticketDAO = new ticketDAO();
 
-        self::setViewParam('listaTickets',$ticketDAO->listar());
+        self::setViewParam('listaTickets',$ticketDAO->listarIndex());
 
         $this->render('/ticket/index');
 
@@ -22,11 +23,16 @@ class TicketController extends Controller
 
     public function cadastro()
     {
-        $this->render('/ticket/cadastro');
+      $clienteDAO = new clienteDAO();
 
-        Sessao::limpaFormulario();
-        Sessao::limpaMensagem();
-        Sessao::limpaErro();
+      self::setViewParam('listaClieCombo',$clienteDAO->listarClieCombo());
+      // self::setViewParam('listaClieCombo',$clienteDAO->listar());
+      
+      $this->render('/ticket/cadastro');
+
+      Sessao::limpaFormulario();
+      Sessao::limpaMensagem();
+      Sessao::limpaErro();
     }
 
     public function salvar()
@@ -119,26 +125,6 @@ class TicketController extends Controller
 
     }
     
-    public function exclusao($params)
-    {
-        $id = $params[0];
-
-        $ticketDAO = new ticketDAO();
-
-        $ticket = $ticketDAO->listar($id);
-
-        if(!$ticket){
-            Sessao::gravaMensagem("Produto inexistente");
-            $this->redirect('/ticket');
-        }
-
-        self::setViewParam('ticket',$ticket);
-
-        $this->render('/ticket/exclusao');
-
-        Sessao::limpaMensagem();
-
-    }
 
     public function excluir()
     {
