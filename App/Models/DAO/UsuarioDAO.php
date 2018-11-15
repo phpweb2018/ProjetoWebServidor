@@ -41,10 +41,10 @@ class UsuarioDAO extends BaseDAO
                 :user_nome,    
                 :user_email",
               [
-                ':user_login'    =>$user_login,
-                ':user_password' =>$user_password,
-                ':user_nome'     =>$user_nome,
-                ':user_email'    =>$user_email   
+                ':user_login'=>$user_login,
+                ':user_password'=>$user_password,
+                ':user_nome'=>$user_nome,
+                ':user_email'=>$user_email   
               ]
           );
 
