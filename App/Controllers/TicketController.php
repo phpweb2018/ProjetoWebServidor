@@ -128,17 +128,18 @@ class TicketController extends Controller
 
     public function excluir()
     {
-        $ticket = new ticket();
-        $ticket->setTick_ID($_POST['tick_ID']);
+        $ticket = new Ticket();
+        $ticket->setTick_ID($_POST['id']);
 
-        $ticketDAO = new ticketDAO();
+        $ticketDAO = new TicketDAO();
 
-        if(!$ticketDAO->excluir($ticket)){
-            Sessao::gravaMensagem("Produto inexistente");
-            $this->redirect('/ticket');
-        }
-
-        Sessao::gravaMensagem("Produto excluido com sucesso!");
+        try {
+            $ticketDAO->excluir($ticket);
+            Sessao::gravaMensagem("Ticket excluido com sucesso!");
+          }
+          catch (\Exception $e){
+            Sessao::gravaErro(Sessao::ErroBD($e));
+          }
 
         $this->redirect('/ticket');
 

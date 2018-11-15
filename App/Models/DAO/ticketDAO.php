@@ -124,7 +124,7 @@ class TicketDAO extends BaseDAO
         try {
             $id = $Ticket->getTick_ID();
 
-            return $this->delete('Ticket',"Tick_ID = $id");
+            return $this->delete('tick',"tick_ID = $id");
 
         }catch (Exception $e){
 

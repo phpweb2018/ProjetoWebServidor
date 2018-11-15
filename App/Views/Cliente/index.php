@@ -41,7 +41,7 @@
                           <a href="http://<?php echo APP_HOST; ?>/cliente/edicao/<?php echo $cliente->getClie_codi(); ?>" class="btn btn-info btn-sm">
                           <i class="fas fa-edit"></i>
                             Editar
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $cliente->getClie_codi();?>, '<?php echo $cliente->getClie_nome();?>', 'http://<?php echo APP_HOST; ?>/cliente/excluir' );">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $cliente->getClie_codi();?>, '<?php echo $cliente->getClie_nome();?>', 'http://<?php echo APP_HOST; ?>/cliente/excluir','Cliente' );">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>

@@ -120,13 +120,13 @@ class UsuarioController extends Controller
 
         $usuarioDAO = new UsuarioDAO();
 
-        if(!$usuarioDAO->excluir($usuario)){
-            Sessao::gravaMensagem("Usuário inexistente");
-            $this->redirect('/usuario');
-        }
-
-        Sessao::gravaMensagem("Usuário excluido com sucesso!");
-
+        try {
+            $usuarioDAO->excluir($usuario);
+            Sessao::gravaMensagem("Usuário excluido com sucesso!");
+          }
+          catch (\Exception $e){
+            Sessao::gravaErro(Sessao::ErroBD($e));
+          }
         $this->redirect('/usuario');
 
     }
