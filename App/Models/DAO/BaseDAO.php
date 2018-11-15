@@ -67,7 +67,7 @@ abstract class BaseDAO
 
             $stmt = $this->conexao->prepare("DELETE FROM $table $where");
             $stmt->execute();
-
+            
             return $stmt->rowCount();
         }else{
             return false;

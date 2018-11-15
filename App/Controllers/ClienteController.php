@@ -134,27 +134,6 @@ class ClienteController extends Controller
 
     }
     
-    public function exclusao($params)
-    {
-        $id = $params[0];
-
-        $clienteDAO = new ClienteDAO();
-
-        $cliente = $clienteDAO->listar($id);
-
-        if(!$cliente){
-            Sessao::gravaMensagem("Cliente inexistente");
-            $this->redirect('/cliente');
-        }
-
-        self::setViewParam('cliente',$cliente);
-
-        $this->render('/cliente/exclusao');
-
-        Sessao::limpaMensagem();
-
-    }
-
     public function excluir()
     {
         $cliente = new Cliente();
@@ -162,14 +141,17 @@ class ClienteController extends Controller
 
         $clienteDAO = new ClienteDAO();
 
-        if(!$clienteDAO->excluir($cliente)){
-            Sessao::gravaMensagem("Cliente inexistente");
-            $this->redirect('/cliente');
+        try {
+          $clienteDAO->excluir($cliente);
+          Sessao::gravaMensagem("Cliente excluido com sucesso!");
         }
-
-        Sessao::gravaMensagem("Cliente excluido com sucesso!");
-
+        catch (\Exception $e){
+          Sessao::gravaErro(Sessao::ErroBD($e));
+        }
+        
         $this->redirect('/cliente');
+        
+
 
     }
 

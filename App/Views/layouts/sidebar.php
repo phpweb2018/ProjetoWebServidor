@@ -11,10 +11,10 @@
         <a href="http://<?php echo APP_HOST; ?>/kanban">
           <i class="fas fa-columns"></i>Kanban
         </a>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+        <a href="#pageCadastros" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
           <i class="fas fa-folder-plus"></i>Cadastros
         </a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
+        <ul class="collapse list-unstyled" id="pageCadastros">
           <li>
             <a href="http://<?php echo APP_HOST; ?>/Cliente/cadastro" >Clientes</a>
           </li>
@@ -24,14 +24,30 @@
           <li>
             <a href="http://<?php echo APP_HOST; ?>/ticket/cadastro">Ticket's</a>
           </li>
-          </ul>
+        </ul>
+        <a href="#pageConsultas" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fas fa-file-alt"></i>Consultas
+        </a>
+        <ul class="collapse list-unstyled" id="pageConsultas">
+          <li>
+            <a href="http://<?php echo APP_HOST; ?>/Cliente" >Clientes</a>
           </li>
           <li>
+            <a href="http://<?php echo APP_HOST; ?>/Usuario">Usuários</a>
+          </li>                    
+          <li>
+            <a href="http://<?php echo APP_HOST; ?>/ticket">Ticket's</a>
+          </li>
+        </ul>
+      </li>
+        
+      <li>
           <a href="#">
             <i class="fas fa-cog"></i>Configurações
           </a>
       </li>
     </ul>
+    
   </nav>
   
     <!-- Conteudo  -->

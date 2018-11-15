@@ -165,14 +165,8 @@ class ClienteDAO extends BaseDAO
 
     public function excluir(Cliente $Cliente)
     {
-        try {
-            $id = $Cliente->getClie_Codi();
+        $id = (int) $Cliente->getClie_Codi();
 
-            return $this->delete('Clie',"Clie_codi = $Clie_codi");
-
-        }catch (Exception $e){
-
-            throw new \Exception("Erro ao deletar", 500);
-        }
+        return $this->delete('Clie',"Clie_codi = $id");
     }
 }

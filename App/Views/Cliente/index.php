@@ -12,11 +12,17 @@
       </div>
       <div class="col-md-12 h-100">
         <?php if($Sessao::retornaMensagem()){ ?>
-            <div class="alert alert-warning" role="alert">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <?php echo $Sessao::retornaMensagem(); ?>
-            </div>
+             <!-- montar modal de mensagem de informação -->
         <?php } ?>
+        <?php if($Sessao::retornaErro()){ 
+         echo "<script>
+                $(window).load(function(){
+                  MudaMensagem('{ $Sessao::retornaErro()');
+                  $('#ModalInformaErro').modal('show');
+                });
+              </script>";
+
+          } ?>
 
         <?php
             if(!count($viewVar['listaClientes'])){
@@ -47,7 +53,7 @@
                           <a href="http://<?php echo APP_HOST; ?>/cliente/edicao/<?php echo $cliente->getClie_codi(); ?>" class="btn btn-info btn-sm">
                           <i class="fas fa-edit"></i>
                             Editar
-                          </a>
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $cliente->getClie_codi();?>, '<?php echo $cliente->getClie_nome();?>' );">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>
@@ -94,6 +100,25 @@
   </div>
 </div>
 <!--Modal: modalConfirmDelete-->
+
+<div class="modal fade" id="ModalInformaErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Erro!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <h4 id="mensagemDoModal"></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </section>
