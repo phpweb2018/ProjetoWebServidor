@@ -11,19 +11,19 @@
                 <div class="panel-body">
                     <div id="TODO" class="kanban-centered">
                     <?php
-                        if(!count($viewVar['listaTickets'])){
+                        if(!count($viewVar['listaTickets-e'])){
                     ?>
                         <div class="alert alert-info" role="alert">Nenhum Ticket encontrado</div>
                     <?php
                     } else {
                     ?>
               <!-- Aqui deve ser feito o foreach das tarefas pendentes-->
-                        <?php foreach($viewVar['listaTickets'] as $tickets){?>
+                        <?php foreach($viewVar['listaTickets-e'] as $tickets){?>
                         <article class="kanban-entry grab" id="item1" draggable="true">
                             <div class="kanban-entry-inner">
                                 <div class="kanban-label">
-                                    <h2><a href="#"><?php echo $tickets->getTick_titulo();?></a> <span>posted a status update</span></h2>
-                                    <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                                    <h2><a href="#"><?php echo $tickets->getTick_titulo();?></a> <br> <span>Criado em <?php echo $tickets->getTick_criacao(); ?></span></h2>
+                                    <p><?php echo $tickets->getTick_descricao();?></p>
                                 </div>
                             </div>
                         </article>
@@ -43,19 +43,26 @@
                 </div>
                 <div class="panel-body">
                     <div id="DOING" class="kanban-centered">
-
+                    <?php
+                        if(!count($viewVar['listaTickets-a'])){
+                    ?>
+                        <div class="alert alert-info" role="alert">Nenhum Ticket encontrado</div>
+                    <?php
+                    } else {
+                    ?>
 
               <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
-
+                    <?php foreach($viewVar['listaTickets-a'] as $tickets){?>
                         <article class="kanban-entry grab" id="item5" draggable="true">
                             <div class="kanban-entry-inner">
-
                                 <div class="kanban-label">
-                                    <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
-                                    <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                                    <h2><a href="#"><?php echo $tickets->getTick_titulo();?></a> <br><span>Criado em <?php echo $tickets->getTick_criacao(); ?></span></h2>
+                                    <p><?php echo $tickets->getTick_descricao();?></p>
                                 </div>
                             </div>
                         </article>
+                        <?php } ?>
+                        <?php } ?>
 
               <!-- até aqui -->
 
@@ -72,20 +79,27 @@
                 </div>
                 <div class="panel-body">
                     <div id="DONE" class="kanban-centered">
-
+                    <?php
+                        if(!count($viewVar['listaTickets-f'])){
+                    ?>
+                        <div class="alert alert-info" role="alert">Nenhum Ticket encontrado</div>
+                    <?php
+                    } else {
+                    ?>
 
               <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
 
-
+                        <?php foreach($viewVar['listaTickets-f'] as $tickets){?>
                         <article class="kanban-entry grab" id="item5" draggable="true">
                             <div class="kanban-entry-inner">
                                 <div class="kanban-label">
-                                    <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
-                                    <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                                    <h2><a href="#"><?php echo $tickets->getTick_titulo();?></a> <br><span>Criado em <?php echo $tickets->getTick_criacao(); ?></span></h2>
+                                    <p><?php echo $tickets->getTick_descricao();?></p>
                                 </div>
                             </div>
                         </article>
-
+                        <?php } ?>
+                        <?php } ?>
             <!-- até aqui -->
 
                   </div>

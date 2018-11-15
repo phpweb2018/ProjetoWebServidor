@@ -3,3 +3,12 @@ function MudaCodiExclusao(codi, nome) {
   document.getElementById("nomeExclusao").innerHTML=nome ;
   
 }
+
+function mostraSenha() {
+  var x = document.getElementById("usuario_senha");
+  if (x.type === "password") {
+      x.type = "text";
+  } else {
+      x.type = "password";
+  }
+} 

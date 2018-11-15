@@ -36,7 +36,7 @@ class TicketDAO extends BaseDAO
     public  function listar_situacao($situ)
     {
             $resultado = $this->select(
-                "SELECT tick_titulo,tick_criacao,tick_descricao FROM Tick WHERE tick_situacao = $situ"
+                "SELECT tick_titulo,tick_criacao,tick_descricao FROM Tick WHERE tick_situacao = '${situ}'"
             );
             return $resultado->fetchAll(\PDO::FETCH_CLASS, Ticket::class);
     }
