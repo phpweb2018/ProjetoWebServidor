@@ -137,7 +137,7 @@ class ClienteController extends Controller
     public function excluir()
     {
         $cliente = new Cliente();
-        $cliente->setClie_codi($_POST['clie_codi']);
+        $cliente->setClie_codi($_POST['id']);
 
         $clienteDAO = new ClienteDAO();
 
