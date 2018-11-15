@@ -32,3 +32,12 @@ create table tick(
 );
 
 alter table tick ADD CONSTRAINT tick_cliente FOREIGN KEY (tick_cliente) REFERENCES clie(clie_codi);
+
+create table user(
+    user_id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -- user_ID serial PRIMARY KEY, /*postgres*/
+    user_login varchar(100),
+    user_password varchar(100),
+    user_nome varchar(150),
+    user_email varchar(100)
+)

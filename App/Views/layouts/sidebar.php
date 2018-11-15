@@ -19,7 +19,7 @@
             <a href="http://<?php echo APP_HOST; ?>/Cliente/cadastro" >Clientes</a>
           </li>
           <li>
-            <a href="#">Usuários</a>
+            <a href="http://<?php echo APP_HOST; ?>/Usuario/cadastro">Usuários</a>
           </li>                    
           <li>
             <a href="http://<?php echo APP_HOST; ?>/ticket/cadastro">Ticket's</a>
