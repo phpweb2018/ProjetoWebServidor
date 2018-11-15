@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Lib;
-
+use PDOException;
 class Sessao
 {
     public static function gravaMensagem($mensagem){
@@ -42,6 +42,15 @@ class Sessao
 
     public static function limpaErro(){
         unset($_SESSION['erro']);
+    }
+
+    public static function ErroBD(\Exception $e) {
+      if($e->getCode() == "23503") { //restrição de chave
+        return $e->errorInfo[2];    
+      } else {
+        return 'Erro de Banco de Dados'.$e->getMessage();  
+      }
+
     }
 
 }

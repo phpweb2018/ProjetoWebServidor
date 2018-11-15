@@ -1,7 +1,6 @@
 function MudaCodiExclusao(codi, nome) {
   document.getElementById('selecionada').value=codi ;
   document.getElementById("nomeExclusao").innerHTML=nome ;
-  
 }
 
 function mostraSenha() {
@@ -12,3 +11,7 @@ function mostraSenha() {
       x.type = "password";
   }
 } 
+
+function MudaMensagem(mensagem) {
+  document.getElementById("mensagemDoModal").innerHTML=mensagem ;
+}
