@@ -48,7 +48,7 @@
                           <i class="fas fa-edit"></i>
                             Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $usuario->getUser_id()?>, '<?php echo $usuario->getUser_nome()?>' );">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $usuario->getUser_id()?>, '<?php echo $usuario->getUser_nome()?>','http://<?php echo APP_HOST; ?>/usuario','Usuario');">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>

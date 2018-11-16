@@ -20,6 +20,23 @@ a aberturas dessas tags foi realizada na side bar -->
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
+ <div id='tawk_5bbf7bb661d0b7709251120c'></div>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date(); Tawk_API.embedded='tawk_5bbf7bb661d0b7709251120c';
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5bbf7bb661d0b7709251120c/1csclukp9';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);})();
+</script>
+<!--End of Tawk.to Script-->
+
+
+
+
   <!-- Verifica se existe mensagem de erro e apresenta o modal   -->
   <?php if($Sessao::retornaErro()){?>
     <script>
@@ -27,8 +44,18 @@ a aberturas dessas tags foi realizada na side bar -->
           MudaMensagem('<?php echo str_replace(["'","\"","\n"], "",$Sessao::retornaErro() ); ?>');
           $('#InformaErro').modal('show');
       });
-    </script>              
+    </script>
   <?php $Sessao::limpaErro();  } ?>
+  <!-- Verifica se Foi Gravada alguma Mensagem e apresenta o modal -->
+  <?php if($Sessao::retornaMensagem()){?>
+    <script>
+      $(document).ready(function() {
+          MudaMensagem('<?php echo str_replace(["'","\"","\n"], "",$Sessao::retornaMensagem() ); ?>');
+          $('#InformaInfo').modal('show');
+      });
+    </script>  
+  <?php $Sessao::limpaMensagem();  } ?>            
+  
 
   
   <?php if($Sessao::retornaMensagem()){ ?>

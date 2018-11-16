@@ -1,7 +1,8 @@
-function MudaCodiExclusao(codi, nome, host,) {
+function MudaCodiExclusao(codi, nome, host, tela) {
   document.getElementById('selecionada').value=codi ;
   document.getElementById('form_exclusao').action=host ;
   document.getElementById("nomeExclusao").innerHTML=nome ;
+  document.getElementById("tela").innerHTML=tela;
 }
 
 function mostraSenha() {
@@ -15,4 +16,5 @@ function mostraSenha() {
 
 function MudaMensagem(mensagem) {
   document.getElementById("msgmodal").innerHTML=mensagem ;
+  document.getElementById("msgInfo").innerHTML=mensagem;
 }
