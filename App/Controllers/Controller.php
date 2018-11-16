@@ -32,6 +32,7 @@ abstract class Controller
         require_once PATH . '/App/Views/'.$view.'.php';
         require_once PATH . '/App/Views/layouts/modal.php';
         require_once PATH . '/App/Views/layouts/rodape.php';
+        require_once PATH . '/App/views/layouts/mibew.html';
     }
 
     public function redirect($view)

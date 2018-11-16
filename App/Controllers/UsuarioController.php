@@ -116,7 +116,7 @@ class UsuarioController extends Controller
     public function excluir()
     {
         $usuario = new Usuario();
-        $usuario->setUser_id($_POST['user_id']);
+        $usuario->setUser_id($_POST['id']);
 
         $usuarioDAO = new UsuarioDAO();
 
