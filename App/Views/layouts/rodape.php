@@ -20,9 +20,6 @@ a aberturas dessas tags foi realizada na side bar -->
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
-
-
-
   <!-- Verifica se existe mensagem de erro e apresenta o modal   -->
   <?php if($Sessao::retornaErro()){?>
     <script>

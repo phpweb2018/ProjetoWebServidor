@@ -55,46 +55,35 @@ class UsuarioDAO extends BaseDAO
 
     public  function atualizar(Usuario $Usuario) 
     {
-        try {
+      $user_id        =  $Usuario->getUser_id();
+      $user_login     =  $Usuario->getUser_login();
+      $user_password  =  $Usuario->getUser_password();
+      $user_nome      =  $Usuario->getUser_nome();
+      $user_email     =  $Usuario->getUser_email();
 
-          $user_id        =  $Usuario->getUser_id();
-          $user_login     =  $Usuario->getUser_login();
-          $user_password  =  $Usuario->getUser_password();
-          $user_nome      =  $Usuario->getUser_nome();
-          $user_email     =  $Usuario->getUser_email();
+        return $this->update(
+            'user',
+            "user_id        =  :user_id,
+              user_login     =  :user_login,
+              user_password  =  :user_password,
+              user_nome      =  :user_nome,
+              user_email     =  :user_email,",
+            [
+              ':user_id'      =>$user_id,
+              ':user_login'   =>$user_login,
+              ':user_password'=>$user_password,
+              ':user_nome'    =>$user_nome,
+              ':user_email'   =>$user_email  
+            ],
+            "user_id = :user_id"
+        );
 
-            return $this->update(
-                'user',
-                "user_id        =  :user_id,
-                 user_login     =  :user_login,
-                 user_password  =  :user_password,
-                 user_nome      =  :user_nome,
-                 user_email     =  :user_email,",
-                [
-                 ':user_id'      =>$user_id,
-                 ':user_login'   =>$user_login,
-                 ':user_password'=>$user_password,
-                 ':user_nome'    =>$user_nome,
-                 ':user_email'   =>$user_email  
-                ],
-                "user_id = :user_id"
-            );
-
-        }catch (\Exception $e){
-            throw new \Exception("Erro na gravação de dados.", 500);
-        }
     }
 
     public function excluir(Usuario $Usuario)
     {
-        try {
-            $id = $Usuario->getUser_id();
+      $id = $Usuario->getUser_id();
 
-            return $this->delete('user',"user_id = $id");
-
-        }catch (Exception $e){
-
-            throw new \Exception("Erro ao deletar", 500);
-        }
+      return $this->delete('user',"user_id = $id");
     }
 }

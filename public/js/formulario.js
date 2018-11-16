@@ -1,4 +1,4 @@
-function MudaCodiExclusao(codi, nome, host) {
+function MudaCodiExclusao(codi, nome, host,) {
   document.getElementById('selecionada').value=codi ;
   document.getElementById('form_exclusao').action=host ;
   document.getElementById("nomeExclusao").innerHTML=nome ;
