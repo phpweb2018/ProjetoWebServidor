@@ -46,6 +46,16 @@
             <i class="fas fa-cog"></i>Configurações
           </a>
       </li>
+      <li>
+          <!-- mibew text link -->
+          <a id="mibew-agent-button" href="/ProjetoWebServidor/mibew/chat?locale=pt-br" target="_blank" onclick="Mibew.Objects.ChatPopups['5bee1cfa185b1c43'].open();return false;">
+              <i class="fas fa-headset"></i>Suporte
+          </a>
+          <script type="text/javascript" src="/ProjetoWebServidor/mibew/js/compiled/chat_popup.js"></script>
+          <script type="text/javascript">Mibew.ChatPopup.init({"id":"5bee1cfa185b1c43","url":"\/ProjetoWebServidor\/mibew\/chat?locale=pt-br","preferIFrame":true,"modSecurity":false,"forceSecure":false,"width":640,"height":480,"resizable":true,"styleLoader":"\/ProjetoWebServidor\/mibew\/chat\/style\/popup"});</script>
+          <!-- / mibew text link -->
+            
+      </li>
     </ul>
     
   </nav>

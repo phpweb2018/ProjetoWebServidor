@@ -54,9 +54,7 @@ cache:
     # If "memcached" is used the cached data will be stored in Memcached
     # storage. Before using this kind of storage make sure PHP's memcached
     # extension is installed and enabled.
-    storage: none
-
-    # The lines below represents default Memcached server configurations. They
+    storage: none    # The lines below represents default Memcached server configurations. They
     # will be used only if the "storage" option is set to "memcached".
     memcached_servers:
         - host: localhost
