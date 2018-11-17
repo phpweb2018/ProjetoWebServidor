@@ -6,7 +6,7 @@ use DateTime;
 
 class Ticket
 {
-    private $tick_ID;
+    private $tick_id;
     private $tick_titulo;
     private $tick_cliente;
     private $tick_responsavel;
@@ -100,14 +100,14 @@ class Ticket
         return $this;
     }
 
-    public function getTick_ID()
+    public function gettick_id()
     {
-        return $this->tick_ID;
+        return $this->tick_id;
     }
 
-    public function setTick_ID($tick_ID)
+    public function settick_id($tick_id)
     {
-        $this->tick_ID = $tick_ID;
+        $this->tick_id = $tick_id;
 
         return $this;
     }

@@ -44,11 +44,11 @@
                       <td><?php echo $ticket->getTick_responsavel(); ?></td>
                       <td><?php echo $ticket->getTick_situacao(); ?></td>
                       <td align="right">
-                          <a href="http://<?php echo APP_HOST; ?>/ticket/edicao/<?php echo $ticket->getTick_ID(); ?>" class="btn btn-info btn-sm">
+                          <a href="http://<?php echo APP_HOST; ?>/ticket/edicao/<?php echo $ticket->gettick_id(); ?>" class="btn btn-info btn-sm">
                           <i class="fas fa-edit"></i>
                             Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $ticket->getTick_ID();?>, '<?php echo $ticket->getTick_titulo();?>','http://<?php echo APP_HOST; ?>/ticket/excluir', 'Ticket' );">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $ticket->gettick_id();?>, '<?php echo $ticket->getTick_titulo();?>','http://<?php echo APP_HOST; ?>/ticket/excluir', 'Ticket' );">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>

@@ -1,97 +1,121 @@
 <section>
 
+<div class="container"></div>
+  <div class="row">
+      <div class="col-md-4">
+        <div class="card text-black bg-warning mb-3" >
+          
+          <div class="card-header">
+            <i class="far fa-calendar"></i>
+            <strong>Em Espera</strong>
+          </div>
+          
+          <div class="card-body">
+            <div class="panel-body" >
+              <div id="TODO" class="kanban-centered">
 
-<div class="container-fluid" style="min-width: 1050px;">
-	<div id="sortableKanbanBoards" class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-primary kanban-col">
-				<div class="panel-heading">
-					Em Espera
-				</div>
-				<div class="panel-body" style="max-height: 401px;">
-					<div id="TODO" class="kanban-centered">
+              <?php if(!count($viewVar['listaTickets-e'])){?>
+                <!-- Não encontrado -->
+              <?php } else { ?>
+              <!-- Aqui deve ser feito o foreach das tarefas pendentes-->
+              <?php foreach($viewVar['listaTickets-e'] as $tickets){?>
 
-						<article class="kanban-entry grab" id="item0" draggable="true">
-            <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-              <div class="card-header">Header</div>
-              <div class="card-body">
-                <h5 class="card-title">Warning card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <article class="grab" id="item<?=$tickets->gettick_id()?>" draggable="true">
+                  <div class="card text-dark bg-muted mb-3" >
+                    <div class="card-header"><?php echo $tickets->getTick_titulo();?></div>
+                    <div class="card-body">
+                      <p class="card-title  text-dark">Criado em <?php echo $tickets->getTick_criacao(); ?></p>
+                      <p class="card-text text-dark"><?php echo $tickets->getTick_descricao();?></p>
+                    </div>
+                  </div>
+                </article>
+
+              <?php } } ?>
+
               </div>
             </div>
-						</article>
+          </div>
 
-						
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-primary kanban-col">
-				<div class="panel-heading">
-					Em Andamento
-				</div>
+        </div>
+      </div>
 
-				<div class="panel-body" style="max-height: 401px;">
-					<div id="DOING" class="kanban-centered">
 
-						<article class="kanban-entry grab" id="item1" draggable="true">
-							<div class="kanban-entry-inner">
-								<div class="kanban-label">
-									<h2>haha</h2>
-								</div>
-							</div>
-						</article>
-						
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-primary kanban-col">
-				<div class="panel-heading">
-					Finalizado
-				</div>
-				<div class="panel-body" style="max-height: 401px;">
-					<div id="DONE" class="kanban-centered">
+      <div class="col-md-4">
+        <div class="card text-black bg-primary mb-3" >
 
-						<article class="kanban-entry grab" id="item2" draggable="true">
-							<div class="kanban-entry-inner">
-								<div class="kanban-label">
-									<h2>haha</h2>
-								</div>
-							</div>
-						</article>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+          <div class="card-header">
+            <i class="fas fa-calendar-alt"></i>
+            <strong>Em Andamento</strong> 
+          </div>
+          
+          <div class="card-body">
+            <div class="panel-body" >
+              <div id="DOING" class="kanban-centered">
+
+                <?php if(!count($viewVar['listaTickets-a'])){ ?>
+                <?php } else { ?>
+                <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
+                <?php foreach($viewVar['listaTickets-a'] as $tickets){?>
+
+                <article class="grab" id="item1" draggable="true">
+                  <div class="card text-dark bg-muted mb-3" >
+                    <div class="card-header"><?php echo $tickets->getTick_titulo();?></div>
+                    <div class="card-body">
+                      <p class="card-title  text-dark">Criado em <?php echo $tickets->getTick_criacao(); ?></p>
+                      <p class="card-text text-dark"><?php echo $tickets->getTick_descricao();?></p>
+                    </div>
+                  </div>
+                </article>
+                
+                <?php } } ?>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="col-md-4">
+        <div class="card text-dark bg-success mb-3" >
+
+          <div class="card-header">
+            <i class="far fa-calendar-check"></i>
+            <strong>Finalizado</strong> 
+          </div>
+
+          <div class="card-body">
+            <div class="panel-body" >
+              <div id="DONE" class="kanban-centered">
+
+                <?php if(!count($viewVar['listaTickets-f'])){ ?>
+                <?php } else { ?>
+                <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
+                <?php foreach($viewVar['listaTickets-f'] as $tickets){?>
+
+                <article class="grab" id="item2" draggable="true">
+                  <div class="card text-dark bg-muted mb-3" >
+                    <div class="card-header"><?php echo $tickets->getTick_titulo();?></div>
+                    <div class="card-body">
+                      <p class="card-title  text-dark">Criada em <?php echo $tickets->getTick_criacao(); ?></p>
+                      <p class="card-text text-dark"><?php echo $tickets->getTick_descricao();?></p></p>
+                    </div>
+                  </div>
+                </article>
+
+                <?php } } ?>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+  </div>
 </div>
 
-
-<?php if(!count($viewVar['listaTickets-e'])){?>
-<?php } else { ?>
-<!-- Aqui deve ser feito o foreach das tarefas pendentes-->
-<?php foreach($viewVar['listaTickets-e'] as $tickets){?>
-<?php echo $tickets->getTick_titulo();?>
-<?php echo $tickets->getTick_criacao(); ?>
-<?php echo $tickets->getTick_descricao();?>
-<?php } } ?>
-<?php if(!count($viewVar['listaTickets-a'])){ ?>
-<?php } else { ?>
-
-<!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
-<?php foreach($viewVar['listaTickets-a'] as $tickets){?>
-<?php echo $tickets->getTick_titulo();?>
-<?php echo $tickets->getTick_criacao(); ?>
-<?php echo $tickets->getTick_descricao();?>
-<?php } } ?>
-<?php if(!count($viewVar['listaTickets-f'])){ ?>
-<?php } else { ?>
-
-<!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
-<?php foreach($viewVar['listaTickets-f'] as $tickets){?>
-<?php echo $tickets->getTick_titulo();?>
-<?php echo $tickets->getTick_criacao(); ?>
-<?php echo $tickets->getTick_descricao();?></p>
-<?php } } ?>
 
 </section>

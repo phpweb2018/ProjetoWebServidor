@@ -10,7 +10,7 @@ class TicketDAO extends BaseDAO
     {
         if($id) {
             $resultado = $this->select(
-                "SELECT * FROM Tick WHERE tick_ID = $id"
+                "SELECT * FROM Tick WHERE tick_id = $id"
             );
 
             return $resultado->fetchObject(Ticket::class);
@@ -27,7 +27,7 @@ class TicketDAO extends BaseDAO
     public  function listarIndex()
     {
       $resultado = $this->select(
-          'SELECT tick_ID, tick_titulo, clie_nome as tick_cliente, tick_responsavel, tick_situacao FROM Tick 
+          'SELECT tick_id, tick_titulo, clie_nome as tick_cliente, tick_responsavel, tick_situacao FROM Tick 
            LEFT JOIN clie ON tick_cliente = clie_codi'
       );
       return $resultado->fetchAll(\PDO::FETCH_CLASS, Ticket::class);
@@ -36,7 +36,7 @@ class TicketDAO extends BaseDAO
     public  function listar_situacao($situ)
     {
             $resultado = $this->select(
-                "SELECT tick_titulo,tick_criacao,tick_descricao FROM Tick WHERE tick_situacao = '${situ}'"
+                "SELECT tick_id,tick_titulo,tick_criacao,tick_descricao FROM Tick WHERE tick_situacao = '${situ}'"
             );
             return $resultado->fetchAll(\PDO::FETCH_CLASS, Ticket::class);
     }
@@ -77,7 +77,7 @@ class TicketDAO extends BaseDAO
 
     public  function atualizar(Ticket $Ticket) 
     {
-      $tick_ID               = $Ticket->getTick_ID();
+      $tick_id               = $Ticket->gettick_id();
       $tick_titulo           = $Ticket->getTick_titulo();
       $tick_cliente          = $Ticket->getTick_cliente();
       $tick_responsavel      = $Ticket->getTick_responsavel();
@@ -89,12 +89,12 @@ class TicketDAO extends BaseDAO
 
       return $this->update(
           'Ticket',
-          "tick_ID = :tick_ID, tick_titulo = :tick_titulo, tick_cliente = :tick_cliente, 
+          "tick_id = :tick_id, tick_titulo = :tick_titulo, tick_cliente = :tick_cliente, 
           tick_responsavel = :tick_responsavel, tick_situacao = :tick_situacao, tick_descricao = :tick_descricao, 
           tick_prioridade = :tick_prioridade,
           tick_criacao = :tick_criacao, tick_departamento = :tick_departamento",
           [
-              ':tick_ID'=>$tick_ID,
+              ':tick_id'=>$tick_id,
               ':tick_titulo'=>$tick_titulo,
               ':tick_cliente'=>$tick_cliente,
               ':tick_responsavel'=>$tick_responsavel,
@@ -104,7 +104,7 @@ class TicketDAO extends BaseDAO
               ':tick_criacao'=>$tick_criacao,
               ':tick_departamento'=>$tick_departamento
           ],
-          "tick_ID = :tick_ID"
+          "tick_id = :tick_id"
       );
 
     }
@@ -112,9 +112,9 @@ class TicketDAO extends BaseDAO
     public function excluir(Ticket $Ticket)
     {
         
-      $id = $Ticket->getTick_ID();
+      $id = $Ticket->gettick_id();
 
-      return $this->delete('tick',"tick_ID = $id");
+      return $this->delete('tick',"tick_id = $id");
 
     }
 }

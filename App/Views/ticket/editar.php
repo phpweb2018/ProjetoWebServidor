@@ -10,7 +10,7 @@
                 <div class="row">
                   <div class="col-md-12" style="">
                     <form action="http://<?php echo APP_HOST; ?>/ticket/atualizar" method="post" id="form_cadastro">
-                      <input type="hidden" name="tick_ID" value="<?php echo $viewVar['ticket']->getTick_ID(); ?>" >
+                      <input type="hidden" name="tick_id" value="<?php echo $viewVar['ticket']->gettick_id(); ?>" >
                       <div class="form-group bg-2">
                         <label for="tick_titulo">Título</label>
                         <input type="text"   class="form-control" name="tick_titulo" id="tick_titulo" placeholder="" value="<?php echo $viewVar['ticket']->getTick_titulo(); ?>" required>
@@ -57,7 +57,7 @@
                           </button>
                         </div>
                         <div class="col-md-1 pt-3 pb-1">
-                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['ticket']->getTick_ID();?>, '<?php echo $viewVar['ticket']->getTick_titulo();?>','http://<?php echo APP_HOST; ?>/ticket/editar', 'Ticket' ); ">
+                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['ticket']->gettick_id();?>, '<?php echo $viewVar['ticket']->getTick_titulo();?>','http://<?php echo APP_HOST; ?>/ticket/editar', 'Ticket' ); ">
                           <i class="fas fa-trash-alt"></i>Excluir
                           </button>
                         </div>   

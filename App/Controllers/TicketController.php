@@ -129,7 +129,7 @@ class TicketController extends Controller
     public function excluir()
     {
         $ticket = new Ticket();
-        $ticket->setTick_ID($_POST['id']);
+        $ticket->settick_id($_POST['id']);
 
         $ticketDAO = new TicketDAO();
 
