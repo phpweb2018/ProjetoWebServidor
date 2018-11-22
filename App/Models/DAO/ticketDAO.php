@@ -41,6 +41,14 @@ class TicketDAO extends BaseDAO
             return $resultado->fetchAll(\PDO::FETCH_CLASS, Ticket::class);
     }
     
+    public  function chartTickets()
+    {
+            $resultado = $this->select(
+                "SELECT tick_id,tick_titulo,tick_criacao,tick_descricao FROM Tick WHERE tick_situacao = '${situ}'"
+            );
+            return $resultado->fetchAll(\PDO::FETCH_CLASS, Ticket::class);
+    }
+
     public  function salvar(Ticket $Ticket) 
     {
       $tick_titulo           = $Ticket->getTick_titulo();
