@@ -16,7 +16,7 @@ class App
     public function __construct()
     {
         //define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/ProjetoWebServidor");
-        define('APP_HOST'       , "www.hasssolucoes.ga");
+        define('APP_HOST'       , "phpweb2018.herokuapp.com");
         define('PATH'           , realpath('./'));
         define('TITLE'          , "Hass - Soluções");
         // define('DB_HOST'        , "localhost:3307");
@@ -24,16 +24,16 @@ class App
         // define('DB_PASSWORD'    , "");
         // define('DB_NAME'        , "php2018");
         // define('DB_DRIVER'      , "mysql");
-        define('DB_HOST'        , "localhost");
-        define('DB_USER'        , "postgres");
-        define('DB_PASSWORD'    , "postgres");
-        define('DB_NAME'        , "hasssolucoes");
-        define('DB_DRIVER'      , "pgsql");
-        // define('DB_HOST'        , "sql10.freemysqlhosting.net");
-        // define('DB_USER'        , "sql10258848");
-        // define('DB_PASSWORD'    , "5HUHEWJM9U");
-        // define('DB_NAME'        , "sql10258848");
-        // define('DB_DRIVER'      , "pgsql");
+        //define('DB_HOST'        , "localhost");
+       // define('DB_USER'        , "postgres");
+       // define('DB_PASSWORD'    , "postgres");
+       // define('DB_NAME'        , "hasssolucoes");
+       // define('DB_DRIVER'      , "pgsql");
+         define('DB_HOST'        , "ec2-54-83-50-145.compute-1.amazonaws.com");
+         define('DB_USER'        , "vasysywxnlwooi");
+         define('DB_PASSWORD'    , "2919bf6469b71cab763a5e1990cad2de481927ecb7614c9577e899e811d774a6");
+         define('DB_NAME'        , "d1j91br7qn9g5i");
+         define('DB_DRIVER'      , "pgsql");
 
         $this->url();
     }
