@@ -5,7 +5,7 @@
       <!--filtro-->
       <div class="card-body">
       <div class="col-md-12">
-        <a href="http://<?php echo APP_HOST; ?>/cliente/cadastro" class="btn btn-success btn-sm">
+        <a href="<?php echo APP_HOST; ?>/cliente/cadastro" class="btn btn-success btn-sm">
         <i class="fas fa-plus-square"></i>
           Adicionar
         </a>
@@ -42,11 +42,11 @@
                       <td><?php echo $cliente->getClie_situ(); ?></td>
                       <td><?php echo date("d/m/Y",strtotime($cliente->getClie_dtco()));?></td>
                       <td align="right">
-                          <a href="http://<?php echo APP_HOST; ?>/cliente/edicao/<?php echo $cliente->getClie_codi(); ?>" class="btn btn-info btn-sm">
+                          <a href="<?php echo APP_HOST; ?>/cliente/edicao/<?php echo $cliente->getClie_codi(); ?>" class="btn btn-info btn-sm">
                           <i class="fas fa-edit"></i>
                             Editar
                           </a> 
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $cliente->getClie_codi();?>, '<?php echo $cliente->getClie_nome();?>', 'http://<?php echo APP_HOST; ?>/cliente/excluir','Cliente' );">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $cliente->getClie_codi();?>, '<?php echo $cliente->getClie_nome();?>', '<?php echo APP_HOST; ?>/cliente/excluir','Cliente' );">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>

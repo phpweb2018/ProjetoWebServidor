@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="icon" href="http://<?php echo APP_HOST; ?>/public/img/hass/Logo_Site.png">
+    <link rel="icon" href="<?php echo APP_HOST; ?>/public/img/hass/Logo_Site.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
 
     <title><?php echo TITLE; ?></title>
 
-    <link rel="stylesheet" href="http://<?php echo APP_HOST; ?>/node_modules/bootstrap/compiler/bootstrap.css">
-    <link rel="stylesheet" href="http://<?php echo APP_HOST; ?>/public/css/login.css">
-    <link rel="stylesheet" href="http://<?php echo APP_HOST; ?>/public/css/login.scss">
+    <link rel="stylesheet" href="<?php echo APP_HOST; ?>/node_modules/bootstrap/compiler/bootstrap.css">
+    <link rel="stylesheet" href="<?php echo APP_HOST; ?>/public/css/login.css">
+    <link rel="stylesheet" href="<?php echo APP_HOST; ?>/public/css/login.scss">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
@@ -25,7 +25,7 @@
     
 	<div class="login-card">
     <h1>Acessar</h1>
-    <form  action="http://<?php echo APP_HOST; ?>/Usuario/logar" method="post">
+    <form  action="<?php echo APP_HOST; ?>/Usuario/logar" method="post">
       <input type="text" name="usua_login" placeholder="Usuário">
       <input type="password" name="usua_password" placeholder="Senha">
       <input type="submit" name="login" class="login login-submit" value="login">
@@ -110,10 +110,10 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   
-  <script src="http://<?php echo APP_HOST; ?>/node_modules/jquery/dist/jquery.js"></script>
-  <script src="http://<?php echo APP_HOST; ?>/node_modules/popper.js/dist/popper.js"></script>
-  <script src="http://<?php echo APP_HOST; ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="http://<?php echo APP_HOST; ?>/public/js/login.js"></script>
+  <script src="<?php echo APP_HOST; ?>/node_modules/jquery/dist/jquery.js"></script>
+  <script src="<?php echo APP_HOST; ?>/node_modules/popper.js/dist/popper.js"></script>
+  <script src="<?php echo APP_HOST; ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="<?php echo APP_HOST; ?>/public/js/login.js"></script>
 
 
   <!-- Verifica se existe mensagem de erro e apresenta o modal   -->

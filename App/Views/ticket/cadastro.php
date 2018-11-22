@@ -9,7 +9,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-12" style="">
-                  <form action="http://<?php echo APP_HOST; ?>/ticket/salvar" method="post"  id="form_cadastro">
+                  <form action="<?php echo APP_HOST; ?>/ticket/salvar" method="post"  id="form_cadastro">
                     <div class="form-group border-primary"> 
                       <label class="label" style="" id="label-form">Título</label> 
                       <input type="text" name="tick_titulo" class="form-control shadow" placeholder="Insira o título" required="required" style="	transform: rotate(14);"> 
@@ -85,7 +85,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-10 pt-3 pb-1 ">
-                          <a href="http://<?php echo APP_HOST; ?>/ticket"  id="button-form" class="btn btn-info btn-sm">
+                          <a href="<?php echo APP_HOST; ?>/ticket"  id="button-form" class="btn btn-info btn-sm">
                             <i class="fas fa-arrow-left"></i>
                             Voltar
                           </a>

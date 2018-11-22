@@ -9,7 +9,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-12" style="">
-                    <form action="http://<?php echo APP_HOST; ?>/Cliente/salvar" method="post" id="form_cadastro">
+                    <form action="<?php echo APP_HOST; ?>/Cliente/salvar" method="post" id="form_cadastro">
                       <div class="form-group bg-2">
                         <label class="" id="label-form">Nome<br>
                         </label>
@@ -152,7 +152,7 @@
                       </div>
                       <div class="row">
                         <div class="col-md-10 pt-3 pb-1 ">
-                          <a href="http://<?php echo APP_HOST; ?>/cliente"  id="button-form" class="btn btn-info btn-sm">
+                          <a href="<?php echo APP_HOST; ?>/cliente"  id="button-form" class="btn btn-info btn-sm">
                             <i class="fas fa-arrow-left"></i>
                             Voltar
                           </a>
