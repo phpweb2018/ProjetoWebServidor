@@ -13,22 +13,22 @@
                       <div class="form-group bg-2">
                         <label class="" id="label-form">Login<br>
                         </label>
-                        <input type="text" class="form-control shadow" placeholder="Login" name="user_login" required="required" value="<?php echo $Sessao::retornaValorFormulario('user_login'); ?>" >
+                        <input type="text" class="form-control shadow" placeholder="Login" name="usua_login" required="required" value="<?php echo $Sessao::retornaValorFormulario('usua_login'); ?>" >
                       </div>
                       <div class="form-group">
                         <label id="label-form">Senha</label>
-                        <input id="usuario_senha" type="password" class="form-control shadow" placeholder="Senha" name="user_password" value="<?php echo $Sessao::retornaValorFormulario('user_password'); ?>">
+                        <input id="usuario_senha" type="password" class="form-control shadow" placeholder="Senha" required="required" name="usua_password" value="<?php echo $Sessao::retornaValorFormulario('usua_password'); ?>">
                         <input type="checkbox" onclick="mostraSenha()"> Mostrar Senha
                       </div>
                       <div class="form-group">
                         <label id="label-form">Nome<br>
                         </label>
-                        <input type="text" class="form-control shadow" placeholder="Nome" name="user_nome" value="<?php echo $Sessao::retornaValorFormulario('user_nome'); ?>" >
+                        <input type="text" class="form-control shadow" placeholder="Nome" required="required" name="usua_nome" value="<?php echo $Sessao::retornaValorFormulario('usua_nome'); ?>" >
                       </div>
                       <div class="form-group" style="">
                         <label id="label-form">E-mail
                         </label>
-                        <input type="text" class="form-control shadow" placeholder="usuario@dominio.com" name="user_email" value="<?php echo $Sessao::retornaValorFormulario('user_email'); ?>">
+                        <input type="email" class="form-control shadow" placeholder="usuario@dominio.com" required="required" name="usua_email" value="<?php echo $Sessao::retornaValorFormulario('usua_email'); ?>">
                       </div>
                       <div class="row">
                         <div class="col-md-10 pt-3 pb-1 ">

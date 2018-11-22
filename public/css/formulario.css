@@ -32,3 +32,16 @@
 #dados-ali-dir{
   float: right;
 }
+
+#barra_nav{
+  margin-bottom: 0%;
+}
+
+#piechart{
+  width: 100%; 
+  height: 100%;
+}
+
+#chart_tick{
+  height: 480px;
+}

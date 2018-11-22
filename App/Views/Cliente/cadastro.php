@@ -22,7 +22,7 @@
                       <div class="form-group">
                         <label id="label-form">CNPJ<br>
                         </label>
-                        <input type="text" class="form-control shadow" placeholder="00.000.000/0000-00" name="clie_cnpj" value="<?php echo $Sessao::retornaValorFormulario('clie_cnpj'); ?>" >
+                        <input type="text" id="cnpj" class="form-control shadow" placeholder="00.000.000/0000-00" name="clie_cnpj" value="<?php echo $Sessao::retornaValorFormulario('clie_cnpj'); ?>" >
                       </div>
                       <div class="form-group" style="">
                         <label id="label-form">E-mail
@@ -89,7 +89,7 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label id="label-form"> Bairro </label>
-                                <input type="text" class="form-control shadow" name="clie_bair" placeholder="Bairro" required="required" value="<?php echo $Sessao::retornaValorFormulario('clie_bair'); ?>">
+                                <input type="text"  min="0" class="form-control shadow" name="clie_bair" placeholder="Bairro" required="required" value="<?php echo $Sessao::retornaValorFormulario('clie_bair'); ?>">
                               </div>
                             </div>
                             <div class="col-md-6">
@@ -147,7 +147,7 @@
                       </div>
                       <div class="form-group">
                         <label id="label-form">Observações</label>
-                        <textarea class="form-control shadow" rows="3" placeholder="..." name="clie_obse" value="<?php echo $Sessao::retornaValorFormulario('clie_obse'); ?>">
+                        <textarea class="form-control shadow" rows="3" name="clie_obse" value="<?php echo $Sessao::retornaValorFormulario('clie_obse'); ?>">
                         </textarea>
                       </div>
                       <div class="row">

@@ -54,13 +54,13 @@
 
 
 <!--Modal: Informação-->
-<div class="modal fade" id="InformaInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="InformaMsg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-bm modal-notify modal-danger" role="document"> 
     <div class="modal-content text-center">
       <!--Header-->
       <div class="modal-header lg-danger d-flex justify-content-center">
-        <p class="heading text-secondary">Sucesso!</p>
+        <p class="heading text-secondary">Informação!</p>
       </div>
       <!--Corpo-->
       <div class="modal-body">

@@ -34,6 +34,14 @@ abstract class Controller
         require_once PATH . '/App/Views/layouts/rodape.php';
     }
 
+    public function renderLadoCliente($view)
+    {
+        $viewVar   = $this->getViewVar();
+        $Sessao    = Sessao::class;
+
+        require_once PATH . '/App/Views/'.$view.'.php';
+    }
+    
     public function redirect($view)
     {
         header('Location: http://' . APP_HOST . $view);

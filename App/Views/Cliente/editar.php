@@ -23,7 +23,7 @@
                       <div class="form-group">
                         <label id="label-form">CNPJ<br>
                         </label>
-                        <input type="text" class="form-control shadow" placeholder="00.000.000/0000-00" name="clie_cnpj" value="<?php echo $viewVar['cliente']->getClie_cnpj(); ?>" >
+                        <input type="text" id="cnpj" class="form-control shadow" placeholder="00.000.000/0000-00" name="clie_cnpj" value="<?php echo $viewVar['cliente']->getClie_cnpj(); ?>" >
                       </div>
                       <div class="form-group" style="">
                         <label id="label-form">E-mail
@@ -82,7 +82,7 @@
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label id="label-form"> Nº. </label>
-                                <input type="number" class="form-control shadow" name="clie_nume" value="<?php echo $viewVar['cliente']->getClie_nume(); ?>">
+                                <input type="number"  min="0" class="form-control shadow" name="clie_nume" value="<?php echo $viewVar['cliente']->getClie_nume(); ?>">
                               </div>
                             </div>
                           </div>
@@ -148,7 +148,7 @@
                       </div>
                       <div class="form-group">
                         <label id="label-form">Observações</label>
-                        <textarea class="form-control shadow" rows="3" placeholder="..." name="clie_obse" value="<?php echo $viewVar['cliente']->getClie_obse(); ?>">
+                        <textarea class="form-control shadow" rows="3"  name="clie_obse" value="<?php echo $viewVar['cliente']->getClie_obse(); ?>">
                         </textarea
                       ></div>
                       <div class="row">

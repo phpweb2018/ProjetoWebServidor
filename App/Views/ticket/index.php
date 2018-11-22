@@ -11,17 +11,13 @@
         <hr>
       </div>
       <div class="col-md-12 h-100">
-        <?php if($Sessao::retornaMensagem()){ ?>
-            <div class="alert alert-warning" role="alert">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <?php echo $Sessao::retornaMensagem(); ?>
-            </div>
-        <?php } ?>
-
         <?php
             if(!count($viewVar['listaTickets'])){
         ?>
-            <div class="alert alert-info" role="alert">Nenhum cliente encontrado</div>
+            <div class="alert alert-warning" role="alert">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Nenhum Ticket encontrado!
+            </div>
         <?php
             } else {
         ?>

@@ -1,3 +1,4 @@
+
 <section>
 
 <div class="container"></div>
@@ -20,7 +21,7 @@
               <!-- Aqui deve ser feito o foreach das tarefas pendentes-->
               <?php foreach($viewVar['listaTickets-e'] as $tickets){?>
 
-                <article class="grab" id="item<?=$tickets->gettick_id()?>" draggable="true">
+                <article class="grab" id="<?=$tickets->gettick_id()?>" draggable="true">
                   <div class="card text-dark bg-muted mb-3" >
                     <div class="card-header"><?php echo $tickets->getTick_titulo();?></div>
                     <div class="card-body">
@@ -57,7 +58,7 @@
                 <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
                 <?php foreach($viewVar['listaTickets-a'] as $tickets){?>
 
-                <article class="grab" id="item1" draggable="true">
+                <article class="grab" id="<?=$tickets->gettick_id()?>" draggable="true">
                   <div class="card text-dark bg-muted mb-3" >
                     <div class="card-header"><?php echo $tickets->getTick_titulo();?></div>
                     <div class="card-body">
@@ -79,7 +80,7 @@
 
 
       <div class="col-md-4">
-        <div class="card text-dark bg-success mb-3" >
+        <div class="card bg-success text-dark mb-3" >
 
           <div class="card-header">
             <i class="far fa-calendar-check"></i>
@@ -95,7 +96,7 @@
                 <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
                 <?php foreach($viewVar['listaTickets-f'] as $tickets){?>
 
-                <article class="grab" id="item2" draggable="true">
+                <article class="grab" id="<?=$tickets->gettick_id()?>" draggable="true">
                   <div class="card text-dark bg-muted mb-3" >
                     <div class="card-header"><?php echo $tickets->getTick_titulo();?></div>
                     <div class="card-body">
@@ -116,6 +117,5 @@
 
   </div>
 </div>
-
 
 </section>

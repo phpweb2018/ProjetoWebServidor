@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Lib\Sessao;
 use App\Models\DAO\UsuarioDAO;
 use App\Models\Entidades\Usuario;
-use App\Models\Validacao\UsuarioValidador;
 
 class UsuarioController extends Controller
 {
@@ -20,6 +19,11 @@ class UsuarioController extends Controller
         Sessao::limpaMensagem();
     }
 
+    public function login()
+    {
+        $this->renderLadoCliente('Usuario/Login');
+    }
+
     public function cadastro()
     {
         $this->render('/usuario/cadastro');
@@ -29,35 +33,6 @@ class UsuarioController extends Controller
         Sessao::limpaErro();
     }
 
-    public function salvar()
-    {
-        $Usuario = new Usuario();
-        $Usuario->setUser_login($_POST['user_login']);
-        $Usuario->setUser_password($_POST['user_password']);
-        $Usuario->setUser_nome($_POST['user_nome']);
-        $Usuario->setUser_email($_POST['user_email']);
-
-        Sessao::gravaFormulario($_POST);
-
-        $usuarioValidador = new UsuarioValidador();
-        $resultadoValidacao = $usuarioValidador->validar($Usuario);
-
-        if($resultadoValidacao->getErros()){
-            Sessao::gravaErro($resultadoValidacao->getErros());
-            $this->redirect('/Usuario');
-        }
-
-        $usuarioDAO = new UsuarioDAO();
-
-        $usuarioDAO->salvar($Usuario);
-        
-        Sessao::limpaFormulario();
-        Sessao::limpaMensagem();
-        Sessao::limpaErro();
-
-        $this->redirect('/Usuario');
-      
-    }
     
     public function edicao($params)
     {
@@ -80,34 +55,100 @@ class UsuarioController extends Controller
 
     }
 
-    public function atualizar()
+    public function deslogar()
     {
+      Sessao::limpaUsua();
+      $this->redirect('/usuario');
 
-        $usuario = new Usuario();
-        $usuario->setUser_id($_POST['user_id']);
-        $usuario->setUser_login($_POST['user_login']);
-        $usuario->setUser_password($_POST['user_password']);
-        $usuario->setUser_nome($_POST['user_nome']);
-        $usuario->setUser_email($_POST['user_email']);
+    }
+
+    
+    public function logar()
+    {
+      $login    = $_POST['usua_login'];
+      $password = $_POST['usua_password'];
+ 
+      if ($login == 'admin' &&  $password == 'web2018') {
+        //verifica se as tabelas estão criadas
+        //se não estiverem efetua a criação
+        Sessao::gravaUsua($login);
+        $this->redirect('/Principal/Index');
+      }
+
+      $Usua = new Usuario();
+      $Usua->setUsua_login($login);
+      $Usua->setUsua_password($password);
+      
+      $usuarioDAO = new UsuarioDAO();
+
+      $Usuario = $usuarioDAO->consultaLogin($Usua);
+
+      if(!$Usuario){
+          Sessao::gravaMensagem("Usuário ou senha incorreta");
+          $this->redirect('/usuario');
+      } else {
+        $this->render('/principal');
+      } 
+      
+
+    }
+
+
+
+    public function salvar()
+    {
+        $Usuario = new Usuario();
+        $Usuario->setUsua_login($_POST['usua_login']);
+        $Usuario->setUsua_password($_POST['usua_password']);
+        $Usuario->setUsua_nome($_POST['usua_nome']);
+        $Usuario->setUsua_email($_POST['usua_email']);
 
         Sessao::gravaFormulario($_POST);
 
-        $usuarioValidador = new UsuarioValidador();
-        $resultadoValidacao = $usuarioValidador->validar($usuario);
-
-        if($resultadoValidacao->getErros()){
-            Sessao::gravaErro($resultadoValidacao->getErros());
-            $this->redirect('/usuario/edicao/'.$_POST['user_id']);
-        }
-
         $usuarioDAO = new UsuarioDAO();
-
-        $usuarioDAO->atualizar($usuario);
 
         Sessao::limpaFormulario();
         Sessao::limpaMensagem();
         Sessao::limpaErro();
+        
+        try{
+          $usuarioDAO->salvar($Usuario);
+          Sessao::gravaMensagem("Usuário incluido com sucesso!");
+        }
+        catch (\Exception $e){
+          Sessao::gravaErro(Sessao::ErroBD($e));
+        }
 
+        $this->redirect('/Usuario');
+      
+    }
+    
+
+    public function atualizar()
+    {
+
+        $usuario = new Usuario();
+        $usuario->setUsua_id($_POST['usua_id']);
+        $usuario->setUsua_login($_POST['usua_login']);
+        $usuario->setUsua_password($_POST['usua_password']);
+        $usuario->setUsua_nome($_POST['usua_nome']);
+        $usuario->setUsua_email($_POST['usua_email']);
+
+        Sessao::gravaFormulario($_POST);
+
+        $usuarioDAO = new UsuarioDAO();
+
+        Sessao::limpaFormulario();
+        Sessao::limpaMensagem();
+        Sessao::limpaErro();
+        
+        try{
+          $usuarioDAO->atualizar($usuario);
+          Sessao::gravaMensagem("Usuário alterado com sucesso!");
+        }
+        catch (\Exception $e){
+          Sessao::gravaErro(Sessao::ErroBD($e));
+        }
         $this->redirect('/usuario');
 
     }
@@ -116,17 +157,17 @@ class UsuarioController extends Controller
     public function excluir()
     {
         $usuario = new Usuario();
-        $usuario->setUser_id($_POST['id']);
+        $usuario->setUsua_id($_POST['id']);
 
         $usuarioDAO = new UsuarioDAO();
 
         try {
-            $usuarioDAO->excluir($usuario);
-            Sessao::gravaMensagem("Usuário excluido com sucesso!");
-          }
-          catch (\Exception $e){
-            Sessao::gravaErro(Sessao::ErroBD($e));
-          }
+          $usuarioDAO->excluir($usuario);
+          Sessao::gravaMensagem("Usuário excluido com sucesso!");
+        }
+        catch (\Exception $e){
+          Sessao::gravaErro(Sessao::ErroBD($e));
+        }
         $this->redirect('/usuario');
 
     }

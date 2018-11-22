@@ -15,7 +15,11 @@
         <?php
             if(!count($viewVar['listaClientes'])){
         ?>
-            <div class="alert alert-info" role="alert">Nenhum cliente encontrado</div>
+            
+            <div class="alert alert-warning" role="alert">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Nenhum cliente encontrado!
+            </div>
         <?php
             } else {
         ?>
@@ -41,6 +45,7 @@
                           <a href="http://<?php echo APP_HOST; ?>/cliente/edicao/<?php echo $cliente->getClie_codi(); ?>" class="btn btn-info btn-sm">
                           <i class="fas fa-edit"></i>
                             Editar
+                          </a> 
                           <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $cliente->getClie_codi();?>, '<?php echo $cliente->getClie_nome();?>', 'http://<?php echo APP_HOST; ?>/cliente/excluir','Cliente' );">
                             <i class="fas fa-trash-alt"></i>
                             Excluir

@@ -1,0 +1,89 @@
+#img_logo {  
+  width: 45px;
+  height: 45px;
+  left: 0px;
+}
+
+#logo_navbar {
+  color: rgba(237, 249, 255) !important;
+  font-family: Roboto !important;
+  font-size: 1.90rem; 
+}
+
+#msg_principal {
+  padding: 150px;
+}
+
+#services {
+  padding: 45px; margin-bottom: 30px;
+}
+
+#slogan {
+  font-size: 60px; 
+  padding: 30px; 
+  margin-bottom: 5px;
+}
+
+#portfolio {
+  padding: 45px;
+}
+
+#desenvolvedores{
+  margin-bottom: 25px;
+}
+
+#social_imgs{
+  width: 45px;  
+  height: 45px;  
+  left: 0px; 
+  border: 0px;
+}
+
+#team{
+  padding: 45px; 
+  margin-bottom: 30px;
+}
+
+#endereco{
+  line-height: 0px;
+}
+
+#devs{
+  position: relative;
+  left: 16%;
+}
+
+#contato{
+  color: rgb(255,255,255); padding: 5px;
+  margin-bottom: 15px;
+}
+
+#grup_social{
+  top: 40px;
+}
+
+#btnDiminuir{
+  float: center;
+}
+
+#btnAumentar{
+  float: center;
+}
+
+#contact{
+  padding: 45px; 
+  margin-bottom: 30px;
+
+}
+
+.feedback {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+#mybutton {
+  position: fixed;
+  bottom: -4px;
+  right: 10px;
+}

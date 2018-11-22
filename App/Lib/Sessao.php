@@ -44,6 +44,18 @@ class Sessao
         unset($_SESSION['erro']);
     }
 
+    public static function gravaUsua($Usua){
+        $_SESSION['usua'] = $Usua;
+    }
+
+    public static function retornaUsua(){
+      return (isset($_SESSION['usua'])) ? $_SESSION['usua'] : false;
+    }
+
+    public static function limpaUsua(){
+        unset($_SESSION['usua']);
+    }
+
     public static function ErroBD(\Exception $e) {
       if($e->getCode() == "23503") { //restrição de chave
         return $e->errorInfo[2];    

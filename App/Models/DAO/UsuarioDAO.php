@@ -3,48 +3,60 @@
 namespace App\Models\DAO;
 
 
-use App\Models\Entidades\Usuario;
+use App\Models\Entidades\usuario;
 
-class UsuarioDAO extends BaseDAO
+class usuarioDAO extends BaseDAO
 {
     public function listar($id = null)
     {
         if($id) {
             $resultado = $this->select(
-                "SELECT * FROM user WHERE user_id = $id"
+                "SELECT * FROM usua WHERE usua_id = $id"
             );
 
-            return $resultado->fetchObject(Usuario::class);
+            return $resultado->fetchObject(usuario::class);
         }else{
             $resultado = $this->select(
-                'SELECT * FROM user '
+                'SELECT * FROM usua '
             );
-            return $resultado->fetchAll(\PDO::FETCH_CLASS, Usuario::class);
+            return $resultado->fetchAll(\PDO::FETCH_CLASS, usuario::class);
         }
 
         return false;
     }
 
-    public  function salvar(Usuario $Usuario) 
+    public function consultaLogin($Usua)
+    {
+      
+      $login     =  $Usua->getUsua_login();
+      $password  =  $Usua->getUsua_password();
+
+      $resultado = $this->select(
+          "SELECT * FROM usua WHERE usua_login = '$login' and usua_password = '$password' "
+      );
+      return $resultado->fetchAll(\PDO::FETCH_CLASS, usuario::class);
+    }
+
+    public  function salvar(usuario $usuario) 
     {
         try {
           
-          $user_login     =  $Usuario->getUser_login();
-          $user_password  =  $Usuario->getUser_password();
-          $user_nome      =  $Usuario->getUser_nome();
-          $user_email     =  $Usuario->getUser_email();
+          $usua_login     =  $usuario->getUsua_login();
+          $usua_password  =  $usuario->getUsua_password();
+          $usua_nome      =  $usuario->getUsua_nome();
+          $usua_email     =  $usuario->getUsua_email();
 
           return $this->insert(
-              'user',
-              " :user_login,   
-                :user_password,
-                :user_nome,    
-                :user_email",
+              'usua',
+              " :usua_login,   
+                :usua_password,
+                :usua_nome,    
+                :usua_email",
               [
-                ':user_login'=>$user_login,
-                ':user_password'=>$user_password,
-                ':user_nome'=>$user_nome,
-                ':user_email'=>$user_email   
+                ':usua_login'=>$usua_login,
+                ':usua_password'=>$usua_password,
+                ':usua_nome'=>$usua_nome,
+                ':usua_email'=>$usua_email   
               ]
           );
 
@@ -53,37 +65,37 @@ class UsuarioDAO extends BaseDAO
         }
     }
 
-    public  function atualizar(Usuario $Usuario) 
+    public  function atualizar(usuario $usuario) 
     {
-      $user_id        =  $Usuario->getUser_id();
-      $user_login     =  $Usuario->getUser_login();
-      $user_password  =  $Usuario->getUser_password();
-      $user_nome      =  $Usuario->getUser_nome();
-      $user_email     =  $Usuario->getUser_email();
+      $usua_id        = (int) $usuario->getUsua_id();
+      $usua_login     =  $usuario->getUsua_login();
+      $usua_password  =  $usuario->getUsua_password();
+      $usua_nome      =  $usuario->getUsua_nome();
+      $usua_email     =  $usuario->getUsua_email();
 
         return $this->update(
-            'user',
-            "user_id        =  :user_id,
-              user_login     =  :user_login,
-              user_password  =  :user_password,
-              user_nome      =  :user_nome,
-              user_email     =  :user_email,",
+            'usua',
+            " usua_id        =  :usua_id,
+              usua_login     =  :usua_login,
+              usua_password  =  :usua_password,
+              usua_nome      =  :usua_nome,
+              usua_email     =  :usua_email",
             [
-              ':user_id'      =>$user_id,
-              ':user_login'   =>$user_login,
-              ':user_password'=>$user_password,
-              ':user_nome'    =>$user_nome,
-              ':user_email'   =>$user_email  
+              ':usua_id'      =>$usua_id,
+              ':usua_login'   =>$usua_login,
+              ':usua_password'=>$usua_password,
+              ':usua_nome'    =>$usua_nome,
+              ':usua_email'   =>$usua_email  
             ],
-            "user_id = :user_id"
+            "usua_id = :usua_id"
         );
 
     }
 
-    public function excluir(Usuario $Usuario)
+    public function excluir(usuario $usuario)
     {
-      $id = $Usuario->getUser_id();
+      $id = $usuario->getUsua_id();
 
-      return $this->delete('user',"user_id = $id");
+      return $this->delete('usua',"usua_id = $id");
     }
 }

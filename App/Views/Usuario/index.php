@@ -11,17 +11,14 @@
         <hr>
       </div>
       <div class="col-md-12 h-100">
-        <?php if($Sessao::retornaMensagem()){ ?>
-            <div class="alert alert-warning" role="alert">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <?php echo $Sessao::retornaMensagem(); ?>
-            </div>
-        <?php } ?>
 
         <?php
             if(!count($viewVar['listaUsuarios'])){
         ?>
-            <div class="alert alert-info" role="alert">Nenhum usuário encontrado</div>
+            <div class="alert alert-warning" role="alert">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Nenhum usuário encontrado!
+            </div>
         <?php
             } else {
         ?>
@@ -29,7 +26,6 @@
             <table id="tabela" class="table table-striped table-bordered" style="width:100%">
               <thead>
                 <th >Login</th>
-                <th >Senha</th>
                 <th >Nome</th>
                 <th >Email</th>
                 <th >Ação</th>      
@@ -39,16 +35,15 @@
                   foreach($viewVar['listaUsuarios'] as $usuario) {
                 ?>
                   <tr>
-                      <td><?php echo $usuario->getUser_nome(); ?></td>
-                      <td><?php echo $usuario->getUser_password(); ?></td>
-                      <td><?php echo $usuario->getUser_nome(); ?></td>
-                      <td><?php echo $usuario->getUser_email();?></td>
+                      <td><?php echo $usuario->getUsua_login(); ?></td>
+                      <td><?php echo $usuario->getUsua_nome(); ?></td>
+                      <td><?php echo $usuario->getUsua_email();?></td>
                       <td align="right">
-                          <a href="http://<?php echo APP_HOST; ?>/usuario/edicao/<?php echo $usuario->getUser_id(); ?>" class="btn btn-info btn-sm">
+                          <a href="http://<?php echo APP_HOST; ?>/usuario/edicao/<?php echo $usuario->getUsua_id(); ?>" class="btn btn-info btn-sm">
                           <i class="fas fa-edit"></i>
                             Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $usuario->getUser_id()?>, '<?php echo $usuario->getUser_nome()?>','http://<?php echo APP_HOST; ?>/usuario','Usuario');">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $usuario->getUsua_id()?>, '<?php echo $usuario->getUsua_nome()?>','http://<?php echo APP_HOST; ?>/usuario','Usuario');">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>

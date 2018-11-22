@@ -1,5 +1,6 @@
 <?php
 namespace App;
+use App\Lib\Sessao;
 
 use App\Controllers\PrincipalController;
 use Exception;
@@ -33,8 +34,14 @@ class App
 
     public function run()
     {
-      //Aqui a magica acontece!!
-        if ($this->controller) {  //Verificar se está tentando acessar alguma classe especifica por meio do controlador
+        $Sessao    = Sessao::class;
+        if (!Sessao::retornaUsua() && $this->controller == 'Usuario') {
+          $this->controllerName = "UsuarioController";
+          $this->controller     = "Usuario";
+        } elseif (!Sessao::retornaUsua()) {
+          $this->controllerName = "SiteController";
+          $this->controller     = "Site";//Caso não exista uma classe de controlador especifica será utilizada a classe Principal ou seja a DashBoard
+        } elseif ($this->controller) {  //Verificar se está tentando acessar alguma classe especifica por meio do controlador
             $this->controllerName = ucwords($this->controller).'Controller';//Adiciona Controller no do atributo da casse controller em questão
             $this->controllerName = preg_replace('/[^a-zA-Z]/i', '', $this->controllerName);//Remove todos os caractéres exceto Letras Min. ou Mai.
         } else {
@@ -60,9 +67,14 @@ class App
         if (!class_exists($nomeClasse)) { //Verifica se a Classe existe
           throw new Exception("Erro na aplicação", 500);
         }
-        
-        if (method_exists($objetoController, $this->action)) {//Executa a ação do controlador
 
+        if ($this->controller == 'Site') {
+          $objetoController->index($this->params);
+          return;
+        } elseif (!Sessao::retornaUsua() && $this->action != 'logar') {
+            $objetoController->login($this->params);
+            return;
+        } elseif (method_exists($objetoController, $this->action)) {//Executa a ação do controlador
             $objetoController->{$this->action}($this->params);
             return;
         } else if (!$this->action && method_exists($objetoController,'index')) {

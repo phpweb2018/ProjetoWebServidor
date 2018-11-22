@@ -40,6 +40,7 @@ class TicketDAO extends BaseDAO
             );
             return $resultado->fetchAll(\PDO::FETCH_CLASS, Ticket::class);
     }
+    
     public  function salvar(Ticket $Ticket) 
     {
       $tick_titulo           = $Ticket->getTick_titulo();
@@ -115,6 +116,24 @@ class TicketDAO extends BaseDAO
       $id = $Ticket->gettick_id();
 
       return $this->delete('tick',"tick_id = $id");
+
+    }
+
+    public function alteraSituacao(Ticket $Ticket)
+    {
+        
+      $tick_id               = $Ticket->gettick_id();
+      $tick_situacao         = $Ticket->getTick_situacao();
+
+      return $this->update(
+          'Tick',
+          "tick_situacao = :tick_situacao",
+          [
+            ':tick_id'=>$tick_id,
+            ':tick_situacao'=>$tick_situacao
+          ],
+          "tick_id = :tick_id"
+      );
 
     }
 }

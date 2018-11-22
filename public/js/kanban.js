@@ -30,17 +30,20 @@ function draggableInit() {
       var targetId = children.attr('id');
 
       if (sourceId != targetId) {
-          var elementId = event.originalEvent.dataTransfer.getData("text/plain");
+        
 
-       //   $('#processing-modal').modal('toggle'); //before post
+        var elementId = event.originalEvent.dataTransfer.getData("text/plain");
 
+        var element = document.getElementById(elementId);
+        children.prepend(element);
 
-          // Post data 
-     //     setTimeout(function () {
-              var element = document.getElementById(elementId);
-              children.prepend(element);
-      //        $('#processing-modal').modal('toggle'); // after post
-      //    }, 1000);
+        var Dados = 'Situacao='+targetId+'&id='+elementId; 
+
+        $.ajax({
+          type:"post",
+          url: "kanban/troca",
+          data: Dados
+        });
 
       }
 

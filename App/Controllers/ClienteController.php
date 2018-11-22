@@ -60,11 +60,15 @@ class ClienteController extends Controller
 
         $clienteDAO = new ClienteDAO();
 
-        $clienteDAO->salvar($Cliente);
-        
         Sessao::limpaFormulario();
         Sessao::limpaMensagem();
-        Sessao::limpaErro();
+        try{
+          $clienteDAO->salvar($Cliente);
+          Sessao::gravaMensagem("Cliente incluído com sucesso!");
+        }
+        catch (\Exception $e){
+          Sessao::gravaErro(Sessao::ErroBD($e));
+        }
 
         $this->redirect('/Cliente');
       
@@ -110,7 +114,7 @@ class ClienteController extends Controller
         $cliente->setClie_copl($_POST['clie_copl']);
         $cliente->setClie_cida($_POST['clie_cida']);
         $cliente->setClie_esta($_POST['clie_esta']);
-        $cliente->setClie_obse($_POST['clie_obse']);
+        $cliente->setClie_obse(trim($_POST['clie_obse']));
 
         Sessao::gravaFormulario($_POST);
 
@@ -123,12 +127,17 @@ class ClienteController extends Controller
         }
 
         $clienteDAO = new ClienteDAO();
-
-        $clienteDAO->atualizar($cliente);
-
+        
         Sessao::limpaFormulario();
         Sessao::limpaMensagem();
-        Sessao::limpaErro();
+
+        try {
+          $clienteDAO->atualizar($cliente);
+          Sessao::gravaMensagem("Cliente alterado com sucesso!");
+        }
+        catch (\Exception $e){
+          Sessao::gravaErro(Sessao::ErroBD($e));
+        }
 
         $this->redirect('/cliente');
 
@@ -150,9 +159,6 @@ class ClienteController extends Controller
         }
         
         $this->redirect('/cliente');
-        
-
-
     }
 
 }

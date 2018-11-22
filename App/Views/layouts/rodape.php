@@ -13,6 +13,7 @@ a aberturas dessas tags foi realizada na side bar -->
   <script src="http://<?php echo APP_HOST; ?>/node_modules/jquery/dist/jquery.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/node_modules/popper.js/dist/popper.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/public/js/sidebar.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/public/js/formulario.js"></script>
   <script src="http://<?php echo APP_HOST; ?>/public/js/datatable.js"></script>
@@ -30,23 +31,17 @@ a aberturas dessas tags foi realizada na side bar -->
       });
     </script>
   <?php $Sessao::limpaErro();  } ?>
+
+  
   <!-- Verifica se Foi Gravada alguma Mensagem e apresenta o modal -->
   <?php if($Sessao::retornaMensagem()){?>
     <script>
       $(document).ready(function() {
           MudaMensagem('<?php echo str_replace(["'","\"","\n"], "",$Sessao::retornaMensagem() ); ?>');
-          $('#InformaInfo').modal('show');
+          $('#InformaMsg').modal('show');
       });
     </script>  
   <?php $Sessao::limpaMensagem();  } ?>            
   
-
-  
-  <?php if($Sessao::retornaMensagem()){ ?>
-    <!-- montar modal de mensagem de informação -->
-  <?php $Sessao::limpaErro();  } ?>
-
-
-
 </body>
 </html>

@@ -28,7 +28,7 @@
       <i class="fas fa-align-left"></i>
       menu
     </button>
-    <div class="container">
+    <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-targer="#navbarSite">
             <span class="navbar-toggler-icon"></span>    
         </button>
@@ -42,6 +42,10 @@
             </div>
         </ul>
     </div>
+    <a class="badge badge-secondary" href="http://<?php echo APP_HOST; ?>/usuario/deslogar">
+      <i class="fas fa-sign-out-alt"></i>
+      Sair
+    </a>
   </nav>
 </header> 
 

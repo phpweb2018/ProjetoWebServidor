@@ -10,26 +10,26 @@
                 <div class="row">
                   <div class="col-md-12" style="">
                     <form action="http://<?php echo APP_HOST; ?>/usuario/atualizar" method="post" id="form_cadastro">
-                      <input type="hidden" name="User_id" value="<?php echo $viewVar['usuario']->getUser_id(); ?>" >
+                      <input type="hidden" name="usua_id" value="<?php echo $viewVar['usuario']->getUsua_id(); ?>" >
                       <div class="form-group bg-2">
                         <label class="" id="label-form">Login<br>
                         </label>
-                        <input type="text" class="form-control shadow" placeholder="Login" name="user_login" required="required" value="<?php echo $viewVar['usuario']->getUser_login(); ?>" >
+                        <input type="text" class="form-control shadow" placeholder="Login" name="usua_login" required="required" value="<?php echo $viewVar['usuario']->getUsua_login(); ?>" >
                       </div>
                       <div class="form-group">
                         <label id="label-form">Senha</label>
-                        <input id="usuario_senha" type="password" class="form-control shadow" placeholder="Senha" name="user_password" value="<?php echo $viewVar['usuario']->getUser_password(); ?>">
+                        <input id="usuario_senha" type="password" class="form-control shadow" required="required" placeholder="Senha" name="usua_password" value="<?php echo $viewVar['usuario']->getUsua_password(); ?>">
                         <input type="checkbox" onclick="mostraSenha()"> Mostrar Senha
                     </div>
                       <div class="form-group">
                         <label id="label-form">Nome<br>
                         </label>
-                        <input type="text" class="form-control shadow" placeholder="Nome" name="user_nome" value="<?php echo $viewVar['usuario']->getUser_nome(); ?>" >
+                        <input type="text" class="form-control shadow" placeholder="Nome" required="required" name="usua_nome" value="<?php echo $viewVar['usuario']->getUsua_nome(); ?>" >
                       </div>
                       <div class="form-group" style="">
                         <label id="label-form">E-mail
                         </label>
-                        <input type="text" class="form-control shadow" placeholder="usuario@dominio.com" name="user_email" value="<?php echo $viewVar['usuario']->getUser_email(); ?>">
+                        <input type="email" class="form-control shadow" required="required" placeholder="usuario@dominio.com" name="usua_email" value="<?php echo $viewVar['usuario']->getUsua_email(); ?>">
                     </div>
                       <div class="row">
                         <div class="col-md-10 pt-3 pb-1 ">
@@ -44,7 +44,7 @@
                           </button>
                         </div>
                         <div class="col-md-1 pt-3 pb-1">
-                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['usuario']->getUser_id();?>, '<?php echo $viewVar['usuario']->getUser_nome();?>' );">
+                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['usuario']->getUsua_id();?>, '<?php echo $viewVar['usuario']->getUsua_nome();?>' );">
                           <i class="fas fa-trash-alt"></i>Excluir
                           </button>
                         </div>   

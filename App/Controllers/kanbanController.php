@@ -21,4 +21,40 @@ class KanbanController extends Controller
 
         Sessao::limpaMensagem();
     }
+    
+    public function troca()
+    {
+
+      switch ($_POST['Situacao']) {
+        case "TODO":
+          $situ = 'Em Espera';
+          break;
+        case "DOING":
+          $situ = 'Em Andamento';
+          break;
+        case "DONE":
+          $situ = 'Finalizado';
+          break;
+      }
+
+      $ticket = new Ticket();
+      $ticket->setTick_id((int)$_POST['id']);
+      $ticket->setTick_situacao($situ);
+
+      $ticketDAO = new TicketDAO();
+
+      try {
+        $ticketDAO->alteraSituacao($ticket);
+      }
+      catch (\Exception $e){
+        Sessao::gravaErro(Sessao::ErroBD($e));
+        $this->redirect('/kanban');
+      }
+      
+    }
+
+    
+
+
+
 }
