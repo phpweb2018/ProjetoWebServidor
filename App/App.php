@@ -15,7 +15,8 @@ class App
 
     public function __construct()
     {
-        define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/ProjetoWebServidor");
+        //define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/ProjetoWebServidor");
+        define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "www.hasssolucoes.ga");
         define('PATH'           , realpath('./'));
         define('TITLE'          , "Hass - Soluções");
         // define('DB_HOST'        , "localhost:3307");
