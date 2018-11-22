@@ -15,8 +15,8 @@ class App
 
     public function __construct()
     {
-        define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/ProjetoWebServidor");
-        //define('APP_HOST'       , "phpweb2018.herokuapp.com");
+        //define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/ProjetoWebServidor");
+        define('APP_HOST'       , "phpweb2018.herokuapp.com");
         define('PATH'           , realpath('./'));
         define('TITLE'          , "Hass - Soluções");
         define('DB_HOST'        , "localhost:3307");
