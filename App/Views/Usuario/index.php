@@ -4,7 +4,7 @@
       <!--filtro-->
       <div class="card-body">
       <div class="col-md-12">
-        <a href="<?php echo APP_HOST; ?>/usuario/cadastro" class="btn btn-success btn-sm">
+        <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/usuario/cadastro" class="btn btn-success btn-sm">
         <i class="fas fa-plus-square"></i>
           Adicionar
         </a>
@@ -39,11 +39,11 @@
                       <td><?php echo $usuario->getUsua_nome(); ?></td>
                       <td><?php echo $usuario->getUsua_email();?></td>
                       <td align="right">
-                          <a href="<?php echo APP_HOST; ?>/usuario/edicao/<?php echo $usuario->getUsua_id(); ?>" class="btn btn-info btn-sm">
+                          <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/usuario/edicao/<?php echo $usuario->getUsua_id(); ?>" class="btn btn-info btn-sm">
                           <i class="fas fa-edit"></i>
                             Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $usuario->getUsua_id()?>, '<?php echo $usuario->getUsua_nome()?>','<?php echo APP_HOST; ?>/usuario','Usuario');">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $usuario->getUsua_id()?>, '<?php echo $usuario->getUsua_nome()?>','<?php echo SSL_OR_NOT.APP_HOST; ?>/usuario','Usuario');">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>

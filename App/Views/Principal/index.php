@@ -7,10 +7,14 @@
   function drawChart() {
 
     var data = google.visualization.arrayToDataTable([
-      ['Tickets', 'Quantidade'],
-      ['Em Espera',     11],
-      ['Em Andamento',  2],
-      ['Finalizado',    2]
+      ['Situação', 'Quantidade'],
+      <?php if(!count($viewVar['chartTickets'])){ ?>
+        ['',     0],
+      <?php } else { ?>
+      <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
+      <?php foreach($viewVar['chartTickets'] as $tickets){?>
+         [<?php echo $tickets['tick_situacao']; ?>,<?php echo $tickets['qtde']; ?>]<?php echo ($tickets['tick_situacao'] != 'Finalizado')?',':''; ?>     
+      <?php } } ?>
     ]);
 
 

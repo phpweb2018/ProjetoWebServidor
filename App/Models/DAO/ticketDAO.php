@@ -36,7 +36,7 @@ class TicketDAO extends BaseDAO
     public  function listar_situacao($situ)
     {
             $resultado = $this->select(
-                "SELECT tick_id,tick_titulo,tick_criacao,tick_descricao FROM Tick WHERE tick_situacao = '${situ}'"
+                " SELECT tick_id,tick_titulo,tick_criacao,tick_descricao FROM Tick WHERE tick_situacao = '${situ}'"
             );
             return $resultado->fetchAll(\PDO::FETCH_CLASS, Ticket::class);
     }
@@ -44,9 +44,13 @@ class TicketDAO extends BaseDAO
     public  function chartTickets()
     {
             $resultado = $this->select(
-                "SELECT tick_id,tick_titulo,tick_criacao,tick_descricao FROM Tick WHERE tick_situacao = '${situ}'"
+                "SELECT count(*) as qtde, tick_situacao
+                   FROM Tick 
+                  WHERE tick_situacao <> 'Baixado' 
+                  GROUP BY tick_situacao
+                  ORDER BY tick_situacao "
             );
-            return $resultado->fetchAll(\PDO::FETCH_CLASS, Ticket::class);
+            return $resultado->fetchObject();
     }
 
     public  function salvar(Ticket $Ticket) 

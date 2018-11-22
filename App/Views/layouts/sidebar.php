@@ -1,14 +1,14 @@
 <div class="wrapper">
   <nav id="sidebar" class="active">
     <div class="sidebar-header" >
-      <a href="<?php echo APP_HOST; ?>">
+      <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>">
       <h3>Hass Soluções</h3>
-      <strong><img src="<?php echo APP_HOST; ?>/public/img/hass/Logo.png" width="70" height="70" alt="Logo Hass" class="rounded"></strong>
+      <strong><img src="<?php echo SSL_OR_NOT.APP_HOST; ?>/public/img/hass/Logo.png" width="70" height="70" alt="Logo Hass" class="rounded"></strong>
       </a>
     </div>
     <ul class="list-unstyled components">
       <li>
-        <a href="<?php echo APP_HOST; ?>/kanban">
+        <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/kanban">
           <i class="fas fa-columns"></i>Kanban
         </a>
         <a href="#pageCadastros" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -16,13 +16,13 @@
         </a>
         <ul class="collapse list-unstyled" id="pageCadastros">
           <li>
-            <a href="<?php echo APP_HOST; ?>/Cliente/cadastro" >Clientes</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/Cliente/cadastro" >Clientes</a>
           </li>
           <li>
-            <a href="<?php echo APP_HOST; ?>/Usuario/cadastro">Usuários</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/Usuario/cadastro">Usuários</a>
           </li>                    
           <li>
-            <a href="<?php echo APP_HOST; ?>/ticket/cadastro">Ticket's</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/ticket/cadastro">Ticket's</a>
           </li>
         </ul>
         <a href="#pageConsultas" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -30,13 +30,13 @@
         </a>
         <ul class="collapse list-unstyled" id="pageConsultas">
           <li>
-            <a href="<?php echo APP_HOST; ?>/Cliente" >Clientes</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/Cliente" >Clientes</a>
           </li>
           <li>
-            <a href="<?php echo APP_HOST; ?>/Usuario">Usuários</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/Usuario">Usuários</a>
           </li>                    
           <li>
-            <a href="<?php echo APP_HOST; ?>/ticket">Ticket's</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/ticket">Ticket's</a>
           </li>
         </ul>
       </li>

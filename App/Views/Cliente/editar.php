@@ -9,7 +9,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-12" style="">
-                    <form action="<?php echo APP_HOST; ?>/cliente/atualizar" method="post" id="form_cadastro">
+                    <form action="<?php echo SSL_OR_NOT.APP_HOST; ?>/cliente/atualizar" method="post" id="form_cadastro">
                       <input type="hidden" name="clie_codi" value="<?php echo $viewVar['cliente']->getClie_codi(); ?>" >
                       <div class="form-group bg-2">
                         <label class="" id="label-form">Nome<br>
@@ -153,7 +153,7 @@
                       ></div>
                       <div class="row">
                         <div class="col-md-10 pt-3 pb-1 ">
-                          <a href="<?php echo APP_HOST; ?>/cliente"  id="button-form" class="btn btn-info btn-sm">
+                          <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/cliente"  id="button-form" class="btn btn-info btn-sm">
                           <i class="fas fa-arrow-left"></i>
                             Voltar
                           </a>
@@ -164,7 +164,7 @@
                           </button>
                         </div>
                         <div class="col-md-1 pt-3 pb-1">
-                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['cliente']->getClie_codi();?>, '<?php echo $viewVar['cliente']->getClie_nome();?>','<?php echo APP_HOST; ?>/cliente/editar','Cliente' );">
+                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['cliente']->getClie_codi();?>, '<?php echo $viewVar['cliente']->getClie_nome();?>','<?php echo SSL_OR_NOT.APP_HOST; ?>/cliente/editar','Cliente' );">
                           <i class="fas fa-trash-alt"></i>Excluir
                           </button>
                         </div>
