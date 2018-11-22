@@ -50,7 +50,7 @@ class TicketDAO extends BaseDAO
                   GROUP BY tick_situacao
                   ORDER BY tick_situacao "
             );
-            return $resultado->fetchObject();
+            return $resultado->fetchAll();
     }
 
     public  function salvar(Ticket $Ticket) 

@@ -13,7 +13,7 @@
       <?php } else { ?>
       <!-- Aqui deve ser feito o foreach das tarefas trabalhando-->
       <?php foreach($viewVar['chartTickets'] as $tickets){?>
-         [<?php echo $tickets['tick_situacao']; ?>,<?php echo $tickets['qtde']; ?>]<?php echo ($tickets['tick_situacao'] != 'Finalizado')?',':''; ?>     
+         ['<?php echo $tickets['tick_situacao']; ?>',<?php echo $tickets['qtde']; ?>]<?php echo ($tickets['tick_situacao'] != 'Finalizado')?',':''; ?>     
       <?php } } ?>
     ]);
 
