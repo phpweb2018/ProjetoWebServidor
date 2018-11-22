@@ -180,21 +180,20 @@
           </div>
         </div>
       </div>
-    </section>
+  </section>
 
- 
+    <!-- Team -->
     <section class="bg-light" id="team">
-      <div class="container">
+    <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Desenvolvedores</h2>
             <h3 class="section-subheading text-muted" id="desenvolvedores">Entre em contato com um dos nossos desenvolvedores</h3>
           </div>
         </div>
-        <div class="row">
-          
-
-          <div id="devs" class="col-sm-4">
+				
+      <div class="row">
+        <div class="col-sm-4">
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="http://<?php echo APP_HOST; ?>/App/Views/Site/img/team/2.jpg" alt="">
               <h4>Cristofer Viante Hass</h4>
@@ -215,7 +214,7 @@
               </ul>
             </div>
           </div>
-          <div id="devs" class="col-sm-4">
+          <div class="col-sm-4"> 
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="http://<?php echo APP_HOST; ?>/App/Views/Site/img/team/3.jpg" alt="">
               <h4>Leonaldo F. Nunes Junior</h4>
@@ -236,6 +235,54 @@
                 </li> 
               </ul>
             </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="http://<?php echo APP_HOST; ?>/App/Views/Site/img/team/4.jpg" alt="">
+              <h4>João Victor Martins</h4>
+              <p class="text-muted">Designer Gráfico</p>
+              <ul class="list-inline social-buttons">
+              	 <a href="https://www.facebook.com/Victor.Lima1327" target="_blank">
+              	 	<img src="http://<?php echo APP_HOST; ?>/App/Views/Site/img/social/facebook.png" id="social_imgs">
+                 </a>
+                 <a href="https://m.me/Victor.Lima1327" target="_blank">
+              	 	<img src="http://<?php echo APP_HOST; ?>/App/Views/Site/img/social/messenger.png" id="social_imgs">
+                 </a>	
+                 <a href="https://api.whatsapp.com/send?phone=554298445953&text=Olá Cristofer!" target="_blank">
+              	 	<img src="http://<?php echo APP_HOST; ?>/App/Views/Site/img/social/whatsapp.png" id="social_imgs">
+                 </a>	
+                 <a href="https://www.linkedin.com/in/jo%C3%A3o-victor-lima-martins-14b075163/" target="_blank">
+              	 	<img src="http://<?php echo APP_HOST; ?>/App/Views/Site/img/social/linkedin.png" id="social_imgs">
+                 </a>	
+              </ul>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <a href="#">
+              <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <a href="#">
+              <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <a href="#">
+              <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <a href="#">
+              <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
+            </a>
           </div>
         </div>
       </div>
