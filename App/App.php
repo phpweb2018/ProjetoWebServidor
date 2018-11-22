@@ -132,6 +132,6 @@ class App
         if ( isset( $array[ $key ] ) && !empty( $array[ $key ] ) ) {
             return $array[ $key ];
         }
-        return 'site';
+        return null;
     }
 }
