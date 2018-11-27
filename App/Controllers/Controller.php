@@ -21,6 +21,10 @@ abstract class Controller
         $viewVar   = $this->getViewVar();
         $Sessao    = Sessao::class;
 
+        // if (substr($view, 0, 1) == '/') {
+        //   $view = substr($view, 1);
+        // }
+
         $rota      = explode('/', (substr($view,0,1) == '/')?substr($view,1):$view);
 
         if (($rotIndex = array_search('index', $rota)) !== false) {
@@ -44,7 +48,7 @@ abstract class Controller
     
     public function redirect($view)
     {
-        header('Location: http://' . APP_HOST . $view);
+        header('Location: '. SSL_OR_NOT . APP_HOST . $view);
         exit;
     }
 

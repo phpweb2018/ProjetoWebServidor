@@ -126,3 +126,6 @@ canvas{
   text-transform: uppercase;
   font-weight: bold;
 }
+#pwdModal {
+display: none;
+}

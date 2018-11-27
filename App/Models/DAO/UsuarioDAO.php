@@ -25,16 +25,23 @@ class usuarioDAO extends BaseDAO
         return false;
     }
 
-    public function consultaLogin($Usua)
+    public function consultaLogin($Usuario)
     {
       
-      $login     =  $Usua->getUsua_login();
-      $password  =  $Usua->getUsua_password();
+      $login     =  $Usuario->getUsua_login();
+      $password  =  $Usuario->getUsua_password();
 
-      $resultado = $this->select(
+      if (!empty($password) && !is_null($password)){
+        $resultado = $this->select(
           "SELECT * FROM usua WHERE usua_login = '$login' and usua_password = '$password' "
-      );
-      return $resultado->fetchAll(\PDO::FETCH_CLASS, usuario::class);
+        );
+      }
+      else{
+        $resultado = $this->select(
+          "SELECT * FROM usua WHERE usua_login = '$login' "
+        );
+      }
+      return $resultado->fetchObject(usuario::class);
     }
 
     public  function salvar(usuario $usuario) 

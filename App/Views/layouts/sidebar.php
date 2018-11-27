@@ -16,10 +16,10 @@
         </a>
         <ul class="collapse list-unstyled" id="pageCadastros">
           <li>
-            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/Cliente/cadastro" >Clientes</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/cliente/cadastro" >Clientes</a>
           </li>
           <li>
-            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/Usuario/cadastro">Usuários</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/usuario/cadastro">Usuários</a>
           </li>                    
           <li>
             <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/ticket/cadastro">Ticket's</a>
@@ -30,10 +30,10 @@
         </a>
         <ul class="collapse list-unstyled" id="pageConsultas">
           <li>
-            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/Cliente" >Clientes</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/cliente" >Clientes</a>
           </li>
           <li>
-            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/Usuario">Usuários</a>
+            <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/usuario">Usuários</a>
           </li>                    
           <li>
             <a href="<?php echo SSL_OR_NOT.APP_HOST; ?>/ticket">Ticket's</a>
@@ -64,13 +64,16 @@
       <div class="container-full" >
         <div class="col-md-12 "  id="zera-MarginEpadding">
           <ul class="breadcrumb bg-light" id='Rota'>
-            <?php
+          <?php
               if (count($rota) > 1) {
                 foreach ($rota as $rt) {
+                  $active = (isset($viewVar['nameAction']) && $rt != $viewVar['nameAction'])?'':'active'; 
+                  $active = ($rt != 'editar')?'':'active'; 
+                  $active = ($rt != 'cadastro')?'':'active'; 
             ?>
-              <li class="breadcrumb-item <?php echo (isset($viewVar['nameAction']) && $rt != $viewVar['nameAction'])?'':'active'; ?> ">
+              <li class="breadcrumb-item <?php echo $active; ?> ">
                   <?php
-                    if(isset($viewVar['nameAction']) && $rt != $viewVar['nameAction']){//Insere o link do primeiro ao penultimo item da rota
+                    if(isset($viewVar['nameAction']) && $rt != $viewVar['nameAction'] && $rt != 'editar'){//Insere o link do primeiro ao penultimo item da rota
                   ?>
                     <a href="http://<?php echo APP_HOST.'/'.$rt; ?>">
                   <?php
@@ -85,7 +88,6 @@
             ?>
               <li class="breadcrumb-item active ">
                     <?php echo ucfirst($rota[0]); ?>
-                  </a>
               </li>
             <?php
               }

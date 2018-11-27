@@ -6,7 +6,6 @@ use App\Lib\Sessao;
 use App\Models\DAO\ticketDAO;
 use App\Models\Entidades\Ticket;
 use App\Models\DAO\clienteDAO;
-use App\Models\Validacao\TicketValidador;
 
 class TicketController extends Controller
 {
@@ -49,13 +48,6 @@ class TicketController extends Controller
 
         Sessao::gravaFormulario($_POST);
 
-        $ticketValidador = new ticketValidador();
-        $resultadoValidacao = $ticketValidador->validar($ticket);
-
-        if($resultadoValidacao->getErros()){
-            Sessao::gravaErro($resultadoValidacao->getErros());
-            $this->redirect('/ticket/ticket');
-        }
 
         $ticketDAO = new ticketDAO();
 
@@ -104,14 +96,6 @@ class TicketController extends Controller
         $ticket->setTick_descricao($_POST['tick_descricao']);
 
         Sessao::gravaFormulario($_POST);
-
-        $ticketValidador = new ticketValidador();
-        $resultadoValidacao = $ticketValidador->validar($ticket);
-
-        if($resultadoValidacao->getErros()){
-            Sessao::gravaErro($resultadoValidacao->getErros());
-            $this->redirect('/ticket/edicao/'.$_POST['id']);
-        }
 
         $ticketDAO = new ticketDAO();
 

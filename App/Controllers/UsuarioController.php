@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Lib\Sessao;
 use App\Models\DAO\UsuarioDAO;
 use App\Models\Entidades\Usuario;
+use App\Models\Entidades\Email;
 
 class UsuarioController extends Controller
 {
@@ -69,8 +70,6 @@ class UsuarioController extends Controller
       $password = $_POST['usua_password'];
  
       if ($login == 'admin' &&  $password == 'web2018') {
-        //verifica se as tabelas estão criadas
-        //se não estiverem efetua a criação
         Sessao::gravaUsua($login);
         $this->redirect('/Principal/Index');
       }
@@ -84,16 +83,13 @@ class UsuarioController extends Controller
       $Usuario = $usuarioDAO->consultaLogin($Usua);
 
       if(!$Usuario){
-          Sessao::gravaMensagem("Usuário ou senha incorreta");
-          $this->redirect('/usuario');
+        Sessao::gravaMensagem("Usuário ou senha incorreta");
+        $this->redirect('/Usuario/login');
       } else {
-        $this->render('/principal');
+        Sessao::gravaUsua($Usua->getUsua_login());
+        $this->redirect('/Principal');
       } 
-      
-
     }
-
-
 
     public function salvar()
     {
@@ -149,7 +145,7 @@ class UsuarioController extends Controller
         catch (\Exception $e){
           Sessao::gravaErro(Sessao::ErroBD($e));
         }
-        $this->redirect('/usuario');
+        $this->redirect('/Usuario');
 
     }
     
@@ -168,7 +164,7 @@ class UsuarioController extends Controller
         catch (\Exception $e){
           Sessao::gravaErro(Sessao::ErroBD($e));
         }
-        $this->redirect('/usuario');
+        $this->redirect('/Usuario');
 
     }
 

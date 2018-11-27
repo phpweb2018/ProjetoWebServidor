@@ -15,11 +15,12 @@ class App
 
     public function __construct()
     {
-        //define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/ProjetoWebServidor");
-        define('APP_HOST'       , "phpweb2018.herokuapp.com");
+        define('APP_HOST'       , $_SERVER['HTTP_HOST'] . "/phpweb2018");
         define('PATH'           , realpath('./'));
         define('TITLE'          , "Hass - Soluções");
-        define('SSL_OR_NOT'     , "https://");
+        define('SSL_OR_NOT'     , "http://");
+        define('FONE'           , "(42)3252-1611");
+        define('EMAIL_ADM'    , "suporte@hasssolucoes.com.br");
 
         // define('DB_HOST'        , "localhost:3307");
         // define('DB_USER'        , "root");
@@ -33,6 +34,7 @@ class App
         // define('DB_NAME'        , "hasssolucoes");
         // define('DB_DRIVER'      , "pgsql");
 
+        //Proxi da UTFPR Bloquiea
         define('DB_HOST'        , "ec2-54-83-50-145.compute-1.amazonaws.com");
         define('DB_USER'        , "vasysywxnlwooi");
         define('DB_PASSWORD'    , "2919bf6469b71cab763a5e1990cad2de481927ecb7614c9577e899e811d774a6");
@@ -44,11 +46,14 @@ class App
 
     public function run()
     {
+        $acoes = array("recuperarsenha", "solicitacontato","logar"); 
+        $acaoLadoVisitante = (in_array($this->action, $acoes ));
+
         $Sessao    = Sessao::class;
         if (!Sessao::retornaUsua() && $this->controller == 'Usuario') {
           $this->controllerName = "UsuarioController";
           $this->controller     = "Usuario";
-        } elseif (!Sessao::retornaUsua()) {
+        } elseif (!Sessao::retornaUsua() && !$acaoLadoVisitante) {
           $this->controllerName = "SiteController";
           $this->controller     = "Site";//Caso não exista uma classe de controlador especifica será utilizada a classe Principal ou seja a DashBoard
         } elseif ($this->controller) {  //Verificar se está tentando acessar alguma classe especifica por meio do controlador
@@ -81,7 +86,7 @@ class App
         if ($this->controller == 'Site') {
           $objetoController->index($this->params);
           return;
-        } elseif (!Sessao::retornaUsua() && $this->action != 'logar') {
+        } elseif (!Sessao::retornaUsua() && !$acaoLadoVisitante) {
             $objetoController->login($this->params);
             return;
         } elseif (method_exists($objetoController, $this->action)) {//Executa a ação do controlador

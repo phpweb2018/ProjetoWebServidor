@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="icon" href="<?php echo SSL_OR_NOT.APP_HOST; ?>/public/img/hass/Logo_Site.png">
+    <link rel="icon" href="<?php 
+use App\Lib\Sessao;
+echo SSL_OR_NOT.APP_HOST; ?>/public/img/hass/Logo_Site.png">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
 
@@ -16,6 +18,7 @@
     <link rel="stylesheet" href="<?php echo SSL_OR_NOT.APP_HOST; ?>/public/css/formulario.css">
     <link rel="stylesheet" href="<?php echo SSL_OR_NOT.APP_HOST; ?>/public/css/datatable.css">
     <link rel="stylesheet" href="<?php echo SSL_OR_NOT.APP_HOST; ?>/public/css/kanban.css">
+    <link rel="stylesheet" href="<?php echo SSL_OR_NOT.APP_HOST; ?>/public/css/navbar.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
@@ -36,7 +39,9 @@
             <div class="container">
                 <div class="col-md-6 col-lg-3 ml-auto admin-bar hidden-sm-down">
                     <nav class="nav nav-inline">
-                        <img class="rounded-circle" src="<?php echo SSL_OR_NOT.APP_HOST; ?>/public/img/hass/team/master.jpg"  width="40" height="40" ></a> 
+                        <div class="avatar-circle">
+                          <div id="profileImage"><?php echo strtoupper(substr(Sessao::retornaUsua(), 0, 1));?></div>
+                        </div>
                     </nav>
                 </div>
             </div>

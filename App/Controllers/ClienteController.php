@@ -5,8 +5,6 @@ namespace App\Controllers;
 use App\Lib\Sessao;
 use App\Models\DAO\ClienteDAO;
 use App\Models\Entidades\Cliente;
-use App\Models\Validacao\ClienteValidador;
-
 class ClienteController extends Controller
 {
     public function index()
@@ -49,14 +47,6 @@ class ClienteController extends Controller
         $Cliente->setClie_obse($_POST['clie_obse']);
 
         Sessao::gravaFormulario($_POST);
-
-        $clienteValidador = new ClienteValidador();
-        $resultadoValidacao = $clienteValidador->validar($Cliente);
-
-        if($resultadoValidacao->getErros()){
-            Sessao::gravaErro($resultadoValidacao->getErros());
-            $this->redirect('/cliente/cliente');
-        }
 
         $clienteDAO = new ClienteDAO();
 
@@ -118,13 +108,6 @@ class ClienteController extends Controller
 
         Sessao::gravaFormulario($_POST);
 
-        $clienteValidador = new ClienteValidador();
-        $resultadoValidacao = $clienteValidador->validar($cliente);
-
-        if($resultadoValidacao->getErros()){
-            Sessao::gravaErro($resultadoValidacao->getErros());
-            $this->redirect('/cliente/edicao/'.$_POST['clie_codi']);
-        }
 
         $clienteDAO = new ClienteDAO();
         

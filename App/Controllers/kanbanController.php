@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Models\Entidades\Ticket;
 use App\Lib\Sessao;
 use App\Models\DAO\ticketDAO;
-use App\Models\Validacao\TicketValidador;
 
 class KanbanController extends Controller
 {
@@ -17,7 +16,7 @@ class KanbanController extends Controller
         self::setViewParam('listaTickets-a',$ticketDAO->listar_situacao('Em Andamento'));
         self::setViewParam('listaTickets-f',$ticketDAO->listar_situacao('Finalizado'));
         
-        $this->render('kanban/index');
+        $this->render('/kanban/index');
 
         Sessao::limpaMensagem();
     }

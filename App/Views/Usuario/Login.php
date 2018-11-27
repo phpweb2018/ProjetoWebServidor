@@ -32,8 +32,47 @@
     </form>
       
     <div class="login-help">
-      <a href="#">Esquecer a Senha?</a>
+      <a href="#" data-target="#pwdModal" data-toggle="modal">Esquecei a Senha.</a>
     </div>
+  </div>
+
+  <!--modal-->
+  <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h1 class="text-center">Recuperar Senha</h1>
+              </div>
+              <div class="modal-body">
+                  <div class="col-md-12">
+                      <div class="panel panel-default">
+                          <div class="panel-body">
+                              <div class="text-center">
+                                  <p>Insira o nome do usuário.</p>
+                                  <p>E a senha será enviada para sua conta de e-mail.</p>
+                                  <div class="panel-body">
+                                      <fieldset> 
+                                        <form action="<?php echo SSL_OR_NOT.APP_HOST; ?>/email/recuperarsenha" method="post" >
+                                            <div class="form-group">
+                                                <input class="form-control input-lg" required="required" placeholder="Usuário" name="usua_login" type="text">
+                                            </div>
+                                                <input class="btn btn-lg btn-primary btn-block" value="Solicitar senha por e-mail" type="submit">
+                                        </form>
+                                      </fieldset>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <div class="col-md-12">
+                      <button class="btn btn-lg btn-warning btn-block" data-dismiss="modal" aria-hidden="true">Voltar</button>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
 
 
@@ -114,6 +153,7 @@
   <script src="<?php echo SSL_OR_NOT.APP_HOST; ?>/node_modules/popper.js/dist/popper.js"></script>
   <script src="<?php echo SSL_OR_NOT.APP_HOST; ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="<?php echo SSL_OR_NOT.APP_HOST; ?>/public/js/login.js"></script>
+  <script src="<?php echo SSL_OR_NOT.APP_HOST; ?>/public/js/formulario.js"></script>
 
 
   <!-- Verifica se existe mensagem de erro e apresenta o modal   -->

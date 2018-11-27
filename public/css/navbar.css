@@ -1,0 +1,12 @@
+#profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgb(71, 118, 204);
+  font-size: 160%;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 35px;
+  margin: 0px;
+  padding: 0px;
+}
