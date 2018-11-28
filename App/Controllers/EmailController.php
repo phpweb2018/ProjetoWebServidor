@@ -67,7 +67,7 @@ class EmailController extends Controller
     $email->addContent(
         "text/html", $e_mail->getConteudo()
     );
-    $sendgrid = new \SendGrid('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');
+    $sendgrid = new \SendGrid('');
     try {
         $response = $sendgrid->send($email);
         print $response->statusCode() . "\n";
