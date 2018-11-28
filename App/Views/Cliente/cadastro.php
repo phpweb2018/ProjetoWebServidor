@@ -24,16 +24,16 @@
                         </label>
                         <input type="text" id="cnpj" class="form-control shadow" placeholder="00.000.000/0000-00" name="clie_cnpj" value="<?php echo $Sessao::retornaValorFormulario('clie_cnpj'); ?>" >
                       </div>
-                      <div class="form-group" style="">
+                      <div class="form-group" >
                         <label id="label-form">E-mail
                         </label>
                         <input type="text" class="form-control shadow" placeholder="Cliente@Site.com" name="clie_emai" value="<?php echo $Sessao::retornaValorFormulario('clie_emai'); ?>"></div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label id="label-form" class="">Telefone<br>
+                            <label id="label-form" >Telefone<br>
                             </label>
-                            <input type="text" class="form-control shadow" placeholder="(XX)XXXX-XXXXX" name="clie_tele" value="<?php echo $Sessao::retornaValorFormulario('clie_tele'); ?>">
+                            <input type="text" id="tel" class="form-control shadow" placeholder="(00)00000-0000" name="clie_tele" value="<?php echo $Sessao::retornaValorFormulario('clie_tele'); ?>">
                           </div>
                         </div>
                         <div class="col-md-6">
@@ -81,7 +81,7 @@
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label id="label-form"> Nº. </label>
-                                <input type="number" class="form-control shadow" name="clie_nume" value="<?php echo $Sessao::retornaValorFormulario('clie_nume'); ?>">
+                                <input type="number" min="0" class="form-control shadow" name="clie_nume" value="<?php echo $Sessao::retornaValorFormulario('clie_nume'); ?>">
                               </div>
                             </div>
                           </div>

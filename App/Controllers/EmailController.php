@@ -25,7 +25,7 @@ class EmailController extends Controller
     $Usuario = $usuarioDAO->consultaLogin($Usuario);
 
     if (!$Usuario){
-      Sessao::gravaMensagem("Usuário não cadastrdo na base de dados!");
+      Sessao::gravaMensagem("Usuário não cadastrado na base de dados!");
     } elseif ( empty($Usuario->getUsua_email()) && is_null($Usuario->getUsua_email()) ) {
       Sessao::gravaMensagem("O Usuário <h5>'{$Usuario->getUsua_nome()}'</h5> não possui email cadastrado, entre em contato com o admnistrador do sistema!");
     } else {
@@ -34,11 +34,11 @@ class EmailController extends Controller
       $email->setEmail_remetente(EMAIL_ADM);
       $email->setDestinatario($Usuario->getUsua_nome());
       $email->setEmail_destino($Usuario->getUsua_email());
-      $email->setAssunto('Recuperação de Senha - '.TITLE);
-      $email->setTitulo(' Referente ao usuário: '.$Usuario->getUsua_nome());
+      $email->setAssunto(' Calma, seus dados foram recuperados!');
+      $email->setTitulo('');
       $email->setConteudo(" 
           <h1 style='color: #5e9ca0;'>Olá <span style='color: #2b2301;'> '{$Usuario->getUsua_nome()}' </span> !</h1>
-          <h2 style='color: #2e6c80;'>Recuperação de senha:</h2>
+          <h2 style='color: #2e6c80;'>Informações:</h2>
           <p>Login: <span style='color: #2e6c80;'> '{$Usuario->getUsua_login()}' </span> 
           <p>Login: <span style='color: #2e6c80;'> '{$Usuario->getUsua_password()}' </span> </p>
           <br/>
@@ -67,7 +67,7 @@ class EmailController extends Controller
     $email->addContent(
         "text/html", $e_mail->getConteudo()
     );
-    $sendgrid = new \SendGrid('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');
+    $sendgrid = new \SendGrid('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');
     try {
         $response = $sendgrid->send($email);
         print $response->statusCode() . "\n";

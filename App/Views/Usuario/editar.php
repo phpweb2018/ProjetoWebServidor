@@ -44,7 +44,7 @@
                           </button>
                         </div>
                         <div class="col-md-1 pt-3 pb-1">
-                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['usuario']->getUsua_id();?>, '<?php echo $viewVar['usuario']->getUsua_nome();?>' );">
+                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['usuario']->getUsua_id();?>, '<?php echo $viewVar['usuario']->getUsua_nome();?>','<?php echo SSL_OR_NOT.APP_HOST; ?>/usuario/excluir','Usuario' );">
                           <i class="fas fa-trash-alt"></i>Excluir
                           </button>
                         </div>   

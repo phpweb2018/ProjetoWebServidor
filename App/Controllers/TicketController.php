@@ -25,7 +25,6 @@ class TicketController extends Controller
       $clienteDAO = new clienteDAO();
 
       self::setViewParam('listaClieCombo',$clienteDAO->listarClieCombo());
-      // self::setViewParam('listaClieCombo',$clienteDAO->listar());
       
       $this->render('/ticket/cadastro');
 
@@ -68,6 +67,10 @@ class TicketController extends Controller
         $ticketDAO = new ticketDAO();
 
         $ticket = $ticketDAO->listar($id);
+        
+        $clienteDAO = new clienteDAO();
+
+        self::setViewParam('listaClieCombo',$clienteDAO->listarClieCombo());
 
         if(!$ticket){
             Sessao::gravaMensagem("Produto inexistente");
@@ -86,6 +89,7 @@ class TicketController extends Controller
     {
 
         $ticket = new ticket();
+        $ticket->settick_id($_POST['tick_id']);
         $ticket->setTick_titulo($_POST['tick_titulo']);
         $ticket->setTick_cliente($_POST['tick_cliente']);
         $ticket->setTick_responsavel($_POST['tick_responsavel']);
@@ -98,12 +102,18 @@ class TicketController extends Controller
         Sessao::gravaFormulario($_POST);
 
         $ticketDAO = new ticketDAO();
-
-        $ticketDAO->atualizar($ticket);
-
+        
         Sessao::limpaFormulario();
         Sessao::limpaMensagem();
         Sessao::limpaErro();
+
+        try {
+          $ticketDAO->atualizar($ticket);
+          Sessao::gravaMensagem("Ticket atualizado com sucesso!");
+        }
+        catch (\Exception $e){
+          Sessao::gravaErro(Sessao::ErroBD($e));
+        }
 
         $this->redirect('/ticket');
 
@@ -120,10 +130,10 @@ class TicketController extends Controller
         try {
             $ticketDAO->excluir($ticket);
             Sessao::gravaMensagem("Ticket excluido com sucesso!");
-          }
-          catch (\Exception $e){
-            Sessao::gravaErro(Sessao::ErroBD($e));
-          }
+        }
+        catch (\Exception $e){
+          Sessao::gravaErro(Sessao::ErroBD($e));
+        }
 
         $this->redirect('/ticket');
 

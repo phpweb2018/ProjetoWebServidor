@@ -34,7 +34,7 @@
                           <div class="form-group">
                             <label id="label-form" class="">Telefone<br>
                             </label>
-                            <input type="text" class="form-control shadow" placeholder="(XX)XXXX-XXXXX" name="clie_tele" value="<?php echo $viewVar['cliente']->getClie_tele(); ?>">
+                            <input type="text" id="tel" class="form-control shadow" placeholder="(00)00000-0000" name="clie_tele" value="<?php echo $viewVar['cliente']->getClie_tele(); ?>">
                           </div>
                         </div>
                         <div class="col-md-6">
@@ -164,7 +164,7 @@
                           </button>
                         </div>
                         <div class="col-md-1 pt-3 pb-1">
-                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['cliente']->getClie_codi();?>, '<?php echo $viewVar['cliente']->getClie_nome();?>','<?php echo SSL_OR_NOT.APP_HOST; ?>/cliente/editar','Cliente' );">
+                          <button type="button" id="button-form-direita" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $viewVar['cliente']->getClie_codi();?>, '<?php echo $viewVar['cliente']->getClie_nome();?>','<?php echo SSL_OR_NOT.APP_HOST; ?>/cliente/excluir','Cliente' );">
                           <i class="fas fa-trash-alt"></i>Excluir
                           </button>
                         </div>

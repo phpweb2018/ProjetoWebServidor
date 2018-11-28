@@ -43,7 +43,7 @@
                           <i class="fas fa-edit"></i>
                             Editar
                           </a>
-                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $usuario->getUsua_id()?>, '<?php echo $usuario->getUsua_nome()?>','<?php echo SSL_OR_NOT.APP_HOST; ?>/usuario','Usuario');">
+                          <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalConfirmDelete" onclick="MudaCodiExclusao(<?php echo $usuario->getUsua_id()?>, '<?php echo $usuario->getUsua_nome()?>','<?php echo SSL_OR_NOT.APP_HOST; ?>/usuario/excluir','Usuario');">
                             <i class="fas fa-trash-alt"></i>
                             Excluir
                           </a>

@@ -4,7 +4,7 @@ create table clie(
     clie_nome varchar(150), 
     clie_emai varchar(100), 
     clie_nofa varchar(150), 
-    clie_tele varchar(14), 
+    clie_tele varchar(18), 
     clie_cnpj varchar(14), 
     clie_tipo varchar(10),
     clie_situ boolean, 

@@ -101,7 +101,7 @@ class TicketDAO extends BaseDAO
       $tick_departamento     = $Ticket->getTick_departamento();
 
       return $this->update(
-          'Ticket',
+          'tick',
           "tick_id = :tick_id, tick_titulo = :tick_titulo, tick_cliente = :tick_cliente, 
           tick_responsavel = :tick_responsavel, tick_situacao = :tick_situacao, tick_descricao = :tick_descricao, 
           tick_prioridade = :tick_prioridade,

@@ -58,7 +58,7 @@ class Sessao
 
     public static function ErroBD(\Exception $e) {
       if($e->getCode() == "23503") { //restrição de chave
-        return $e->errorInfo[2];    
+        return 'Esse cliente possui um ou mais tickets, para excluir esse cliente é necessário primeiro exlcuir os ticketes que pertencem a ele.';    
       } else {
         return 'Erro de Banco de Dados'.$e->getMessage();  
       }

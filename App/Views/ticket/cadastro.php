@@ -25,7 +25,7 @@
                         ?>
                           <option <?php if($Sessao::retornaValorFormulario('tick_cliente') == $clientes->getClie_codi()){echo("selected");}?> value="<?php echo $clientes->getClie_codi(); ?>"><?php echo $clientes->getClie_nome(); ?></option>
                         <?php
-                            }
+                            } 
                           }
                         ?>
                       </select>
@@ -42,7 +42,7 @@
                     <div class="form-group w-100">
                       <label class="" id="label-form">Situação</label><br>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="tick_situacao" id="RadioS1" value="Em Espera">
+                        <input class="form-check-input" type="radio" name="tick_situacao" id="RadioS1" value="Em Espera" checked>
                         <label class="form-check-label" for="RadioS1">Em Espera</label>
                       </div>
                       <div class="form-check form-check-inline">
@@ -53,11 +53,15 @@
                         <input class="form-check-input" type="radio" name="tick_situacao" id="RadioS3" value="Finalizado">
                         <label class="form-check-label" for="RadioS3">Finalizado</label>
                       </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tick_situacao" id="RadioS4" value="Baixado">
+                        <label class="form-check-label" for="RadioS4">Finalizado</label>
+                      </div>
                     </div>
                     <div class="form-group">
                     <label class="" id="label-form">Prioridade</label><br>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="tick_prioridade" id="RadioP1" value="3">
+                        <input class="form-check-input" type="radio" name="tick_prioridade" id="RadioP1" value="3" checked>
                         <label class="form-check-label" for="RadioP1">Pouca Urgência</label>
                       </div>
                       <div class="form-check form-check-inline">
